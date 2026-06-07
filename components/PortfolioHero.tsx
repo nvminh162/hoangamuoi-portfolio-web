@@ -4,7 +4,7 @@ export default function PortfolioHero() {
   return (
     <section 
       id="portfolio"
-      className="relative flex flex-col justify-between w-full h-[90vh] bg-brand-bg px-8 md:px-16 py-8 select-none"
+      className="relative flex flex-col justify-between w-full h-screen bg-brand-bg px-8 md:px-16 py-8 select-none"
     >
       {/* Space where header navigates */}
       <div className="h-8"></div>
@@ -22,12 +22,12 @@ export default function PortfolioHero() {
             />
 
             {/* Title */}
-            <h1 className="text-6xl md:text-[9.5rem] font-serif tracking-tight text-primary leading-none select-none font-medium">
+            <h1 className="text-5xl md:text-[8rem] font-serif tracking-tight text-primary leading-none select-none font-medium">
               PORTFOLIO
             </h1>
 
             {/* English Language Tag */}
-            <span className="absolute -top-5 md:-top-[2.2rem] left-[62%] md:left-[66%] -rotate-[10deg] text-[9px] md:text-base font-playfair font-black italic text-black select-none whitespace-nowrap bg-brand-bg px-1.5 py-0.5 z-10">
+            <span className="absolute -top-5 md:-top-[2.4rem] left-[62%] md:left-[66%] -rotate-[10deg] text-[10px] md:text-[1.2rem] font-playfair font-black italic text-black select-none whitespace-nowrap bg-brand-bg px-1.5 py-0.5 z-10">
               English Language
             </span>
 
@@ -38,7 +38,7 @@ export default function PortfolioHero() {
           </div>
 
           {/* Subtitle */}
-          <p className="text-xs md:text-base font-extrabold tracking-[0.3em] text-black mt-6 uppercase select-none">
+          <p className="text-sm md:text-[1.25rem] font-extrabold tracking-[0.3em] text-black mt-6 uppercase select-none">
             Hoàng A Muội
           </p>
         </div>
@@ -46,7 +46,7 @@ export default function PortfolioHero() {
 
       {/* Bottom spacing indicator */}
       <div className="flex justify-center text-xs opacity-50 font-mono tracking-widest text-primary">
-        [ PORTFOLIO HERO SECTION • HEIGHT: 90VH ]
+        [ PORTFOLIO HERO SECTION • HEIGHT: 100VH ]
       </div>
     </section>
   );

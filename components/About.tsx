@@ -2,9 +2,9 @@ import React from "react";
 
 export default function About() {
   return (
-    <section id="about" className="w-full min-h-[100vh] bg-brand-bg flex flex-col">
+    <section id="about" className="w-full h-screen bg-brand-bg flex flex-col overflow-hidden">
       {/* Header Banner */}
-      <div className="w-full bg-primary py-4 px-8 md:px-16 flex items-center gap-2">
+      <div className="w-full bg-primary py-4 px-8 md:px-16 flex items-center gap-2 shrink-0">
         <span className="text-xl md:text-2xl text-brand-bg font-sans font-medium">+</span>
         <h2 className="text-xl md:text-2xl text-brand-bg font-serif font-bold tracking-widest uppercase">
           VỀ MÌNH
@@ -118,8 +118,8 @@ export default function About() {
         </div>
       </div>
 
-      <div className="flex justify-center py-4 text-xs opacity-50 font-mono tracking-widest text-primary mt-auto">
-        [ ABOUT SECTION • HEIGHT: MIN-H-100VH ]
+      <div className="flex justify-center py-4 text-xs opacity-50 font-mono tracking-widest text-primary mt-auto shrink-0">
+        [ ABOUT SECTION • HEIGHT: 100VH ]
       </div>
     </section>
   );

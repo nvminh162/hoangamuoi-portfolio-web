@@ -2,7 +2,7 @@ import React from "react";
 
 export default function ThankYou() {
   return (
-    <section className="w-full min-h-[50vh] bg-brand-bg flex flex-col justify-between border-t border-primary/20">
+    <section className="w-full h-screen bg-brand-bg flex flex-col justify-between border-t border-primary/20 overflow-hidden">
       
       {/* Spacer to push content down */}
       <div className="h-12"></div>

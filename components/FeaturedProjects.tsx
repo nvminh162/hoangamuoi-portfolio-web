@@ -2,9 +2,9 @@ import React from "react";
 
 export default function FeaturedProjects() {
   return (
-    <section id="featured-projects" className="w-full min-h-[40vh] bg-brand-bg flex flex-col justify-between">
+    <section id="featured-projects" className="w-full h-screen bg-brand-bg flex flex-col justify-between overflow-hidden">
       {/* Header Banner */}
-      <div className="w-full bg-primary py-4 px-8 md:px-16 flex items-center gap-2">
+      <div className="w-full bg-primary py-4 px-8 md:px-16 flex items-center gap-2 shrink-0">
         <span className="text-xl md:text-2xl text-brand-bg font-sans font-medium">+</span>
         <h2 className="text-xl md:text-2xl text-brand-bg font-serif font-bold tracking-widest uppercase">
           DỰ ÁN NỔI BẬT
@@ -54,8 +54,8 @@ export default function FeaturedProjects() {
       </div>
 
       {/* Bottom height specifier */}
-      <div className="flex justify-center py-4 text-xs opacity-50 font-mono tracking-widest text-primary">
-        [ FEATURED PROJECTS SECTION • HEIGHT: MIN-H-40VH ]
+      <div className="flex justify-center py-4 text-xs opacity-50 font-mono tracking-widest text-primary shrink-0">
+        [ FEATURED PROJECTS SECTION • HEIGHT: 100VH ]
       </div>
     </section>
   );

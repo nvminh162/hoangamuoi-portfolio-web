@@ -21,8 +21,8 @@ export default function Header() {
   return (
     <header
       className={`z-50 transition-all duration-500 ease-in-out ${isScrolled
-          ? "fixed top-20 right-6 flex flex-col items-center gap-3 p-4 bg-primary text-brand-bg rounded-2xl shadow-2xl border border-brand-bg/20 scale-95"
-          : "absolute top-0 left-0 w-full flex flex-row justify-end gap-6 px-8 md:px-16 py-8 bg-transparent text-primary"
+        ? "fixed top-17 right-2 flex flex-col items-center gap-3 p-4 bg-primary text-brand-bg rounded-2xl shadow-2xl border border-brand-bg/20 scale-95"
+        : "absolute top-0 left-0 w-full flex flex-row justify-end gap-6 px-8 md:px-16 py-8 bg-transparent text-primary"
         }`}
     >
       {/* Decorative vertical/horizontal line to accent */}
@@ -35,8 +35,8 @@ export default function Header() {
       {/* Nav links */}
       <nav
         className={`flex transition-all duration-500 ease-in-out ${isScrolled
-            ? "flex-col items-center gap-4 text-xs font-bold tracking-widest"
-            : "flex-row gap-6 text-sm font-semibold tracking-wider"
+          ? "flex-col items-center gap-4 text-xs font-bold tracking-widest"
+          : "flex-row gap-6 text-sm font-semibold tracking-wider"
           }`}
       >
         <a

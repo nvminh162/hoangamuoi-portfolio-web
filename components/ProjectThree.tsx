@@ -2,9 +2,9 @@ import React from "react";
 
 export default function ProjectThree() {
   return (
-    <section id="project-03" className="w-full min-h-[100vh] bg-brand-bg flex flex-col justify-between">
+    <section id="project-03" className="w-full h-screen bg-brand-bg flex flex-col justify-between overflow-hidden">
       {/* Header Banner */}
-      <div className="w-full bg-primary py-4 px-8 md:px-16 flex items-center gap-2">
+      <div className="w-full bg-primary py-4 px-8 md:px-16 flex items-center gap-2 shrink-0">
         <span className="text-xl md:text-2xl text-brand-bg font-sans font-medium">+</span>
         <h2 className="text-xl md:text-2xl text-brand-bg font-serif font-bold tracking-widest uppercase">
           DỰ ÁN 03
@@ -12,7 +12,7 @@ export default function ProjectThree() {
       </div>
 
       {/* Main Content */}
-      <div className="max-w-6xl w-full mx-auto px-8 md:px-16 py-12 text-primary flex flex-col gap-16">
+      <div className="flex-1 max-w-6xl w-full mx-auto px-8 md:px-16 py-6 text-primary flex flex-col justify-center gap-6 overflow-hidden">
         
         {/* Intro Grid */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
@@ -86,9 +86,8 @@ export default function ProjectThree() {
 
       </div>
 
-      {/* Bottom spacer */}
-      <div className="flex justify-center py-4 text-xs opacity-50 font-mono tracking-widest text-primary">
-        [ PROJECT 03 SECTION • HEIGHT: MIN-H-100VH ]
+      <div className="flex justify-center py-4 text-xs opacity-50 font-mono tracking-widest text-primary shrink-0">
+        [ PROJECT 03 SECTION • HEIGHT: 100VH ]
       </div>
     </section>
   );
