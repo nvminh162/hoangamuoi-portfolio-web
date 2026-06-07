@@ -66,20 +66,20 @@ export default function About() {
         <div className="md:col-span-8 flex flex-col justify-between gap-8">
           <div>
             <h2 className="text-4xl md:text-5xl font-serif tracking-tight font-bold mb-4 uppercase">
-              EMMI NGUYỄN
+              HOÀNG A MUỘI
             </h2>
             <p className="text-xs font-bold tracking-wider uppercase mb-6 opacity-90 border border-primary/30 px-3 py-1 rounded inline-block bg-primary/5">
-              CONTENT & BRAND EXECUTIVE | BOOKING KOL/KOC | MARKETING ASSISTANT
+              ENGLISH LANGUAGE
             </p>
             <div className="space-y-4 text-sm leading-relaxed text-justify">
               <p>
-                Xin chào, mình là Thư – một Content & Media Executive với hơn 2 năm "lăn xả" trong môi trường agency!
+                Xin chào, mình là Hoàng A Muội – chuyên viên giảng dạy tiếng Anh (ELT) với đam mê phát triển phương pháp học tập sáng tạo và hiệu quả!
               </p>
               <p>
-                Mình mạnh về xây dựng chiến lược nội dung, sáng tạo kịch bản đa concept, quản lý nhiều nền tảng cùng lúc và phối hợp sản xuất để biến ý tưởng thành sản phẩm truyền thông chỉn chu. Trong suốt hành trình làm nghề, mình đã có cơ hội tạo ra nội dung cho nhiều lĩnh vực như Beauty, Clinic, Real Estate, F&B và Personal Branding.
+                Mình mạnh về xây dựng nội dung giảng dạy, thiết kế bài học tương tác sinh động, quản lý học tập và phát triển các tài liệu bổ trợ chuyên sâu. Mình luôn hướng tới việc tạo ra môi trường học tập truyền cảm hứng và giúp người học tự tin sử dụng ngôn ngữ một cách tự nhiên nhất.
               </p>
               <p>
-                Hy vọng Portfolio này sẽ giúp anh/chị nhìn thấy rõ hơn năng lực, tư duy và tinh thần làm nghề của Thư – một ứng viên trẻ, nghiêm túc và giàu tiềm năng.
+                Hy vọng Portfolio này sẽ giúp mọi người nhìn thấy rõ hơn năng lực chuyên môn, tư duy sư phạm và tâm huyết của mình trong lĩnh vực giảng dạy tiếng Anh.
               </p>
             </div>
           </div>

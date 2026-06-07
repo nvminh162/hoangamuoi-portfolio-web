@@ -50,7 +50,7 @@ export default function ThankYou() {
             <a href="#" className="hover:underline">Privacy Policy</a>
           </div>
           <div>
-            <span>Designed by Emmi • 2026</span>
+            <span>Designed by Hoàng A Muội • 2026</span>
           </div>
         </div>
       </div>
