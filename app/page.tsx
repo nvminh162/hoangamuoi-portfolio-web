@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import PortfolioHero from "@/components/PortfolioHero";
 import About from "@/components/About";
+import ThankYou from "@/components/ThankYou";
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
       <Header />
       <PortfolioHero />
       <About />
+      <ThankYou />
     </main>
   );
 }
