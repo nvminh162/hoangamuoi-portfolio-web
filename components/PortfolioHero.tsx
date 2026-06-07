@@ -43,11 +43,6 @@ export default function PortfolioHero() {
           </p>
         </div>
       </div>
-
-      {/* Bottom spacing indicator */}
-      <div className="flex justify-center text-xs opacity-50 font-mono tracking-widest text-primary">
-        [ PORTFOLIO HERO SECTION • HEIGHT: 100VH ]
-      </div>
     </section>
   );
 }
