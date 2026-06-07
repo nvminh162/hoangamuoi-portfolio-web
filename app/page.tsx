@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import PortfolioHero from "@/components/PortfolioHero";
 import About from "@/components/About";
+import Contact from "@/components/Contact";
 import ThankYou from "@/components/ThankYou";
 
 export default function Home() {
@@ -9,6 +10,7 @@ export default function Home() {
       <Header />
       <PortfolioHero />
       <About />
+      <Contact />
       <ThankYou />
     </main>
   );

@@ -54,7 +54,7 @@ export default function Header() {
           About Me
         </a>
         <a
-          href="#thankyou"
+          href="#contact"
           className={`hover:opacity-80 transition-opacity ${isScrolled ? "text-brand-bg pb-1 w-full text-center" : ""
             }`}
         >

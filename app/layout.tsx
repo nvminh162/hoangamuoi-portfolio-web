@@ -27,6 +27,9 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   title: "HOANG A MUOI - Portfolio",
   description: "Portfolio of HOANG A MUOI",
+  icons: {
+    icon: "/gemini.png",
+  },
 };
 
 export default function RootLayout({
