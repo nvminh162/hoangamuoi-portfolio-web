@@ -39,7 +39,7 @@ export default function PortfolioHero() {
 
           {/* Subtitle */}
           <p className="text-sm md:text-[1.25rem] font-extrabold tracking-[0.3em] text-black mt-6 uppercase select-none">
-            Hoàng A Muội
+            HOANG A MUOI
           </p>
         </div>
       </div>

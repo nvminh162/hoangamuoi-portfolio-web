@@ -44,35 +44,14 @@ export default function Header() {
           className={`hover:opacity-80 transition-opacity ${isScrolled ? "text-brand-bg border-b border-brand-bg/25 pb-1 w-full text-center" : ""
             }`}
         >
-          Portfolio!
+          Portfolio
         </a>
         <a
           href="#about"
-          className={`hover:opacity-80 transition-opacity ${isScrolled ? "text-brand-bg border-b border-brand-bg/25 pb-1 w-full text-center" : ""
-            }`}
-        >
-          Về mình
-        </a>
-        <a
-          href="#project-01"
-          className={`hover:opacity-80 transition-opacity ${isScrolled ? "text-brand-bg border-b border-brand-bg/25 pb-1 w-full text-center" : ""
-            }`}
-        >
-          01. How
-        </a>
-        <a
-          href="#project-02"
-          className={`hover:opacity-80 transition-opacity ${isScrolled ? "text-brand-bg border-b border-brand-bg/25 pb-1 w-full text-center" : ""
-            }`}
-        >
-          02. Anytime
-        </a>
-        <a
-          href="#project-03"
           className={`hover:opacity-80 transition-opacity ${isScrolled ? "text-brand-bg pb-1 w-full text-center" : ""
             }`}
         >
-          03. Liivee
+          About Me
         </a>
       </nav>
     </header>

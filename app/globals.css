@@ -2,21 +2,21 @@
 
 :root {
   --background: #F0EBDF;
-  --foreground: #3E5F90;
+  --foreground: #000000;
 }
 
 @theme {
   --color-primary: #3E5F90;
   --color-brand-bg: #F0EBDF;
   --font-serif: var(--font-kaushan), cursive;
-  --font-sans: var(--font-montserrat), sans-serif;
+  --font-sans: var(--font-roboto), sans-serif;
   --font-playfair: var(--font-playfair), serif;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-montserrat), sans-serif;
+  font-family: var(--font-roboto), sans-serif;
 }
 
 

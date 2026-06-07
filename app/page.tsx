@@ -1,11 +1,6 @@
 import Header from "@/components/Header";
 import PortfolioHero from "@/components/PortfolioHero";
 import About from "@/components/About";
-import FeaturedProjects from "@/components/FeaturedProjects";
-import ProjectOne from "@/components/ProjectOne";
-import ProjectTwo from "@/components/ProjectTwo";
-import ProjectThree from "@/components/ProjectThree";
-import ThankYou from "@/components/ThankYou";
 
 export default function Home() {
   return (
@@ -13,11 +8,6 @@ export default function Home() {
       <Header />
       <PortfolioHero />
       <About />
-      <FeaturedProjects />
-      <ProjectOne />
-      <ProjectTwo />
-      <ProjectThree />
-      <ThankYou />
     </main>
   );
 }
