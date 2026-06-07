@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import { motion } from "framer-motion";
 import { Calendar, Phone, Mail, MapPin, Linkedin } from "lucide-react";
 
 const ContactIcon = ({ icon: Icon }: { icon: React.ComponentType<any> }) => (
@@ -11,17 +13,29 @@ export default function About() {
   return (
     <section id="about" className="w-full min-h-screen bg-brand-bg flex flex-col">
       {/* Header Banner */}
-      <div className="w-full bg-primary py-4 px-8 md:px-16 flex items-center gap-2 shrink-0">
+      <motion.div
+        className="w-full bg-primary py-4 px-8 md:px-16 flex items-center gap-2 shrink-0"
+        initial={{ opacity: 0, x: -40 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+      >
         <span className="text-xl md:text-2xl text-brand-bg font-sans font-medium">✦</span>
         <h2 className="text-xl md:text-2xl text-brand-bg font-serif font-bold tracking-widest uppercase">
           ABOUT ME
         </h2>
-      </div>
+      </motion.div>
 
       {/* Main Layout Grid */}
       <div className="flex-1 max-w-6xl w-full mx-auto px-8 md:px-16 py-8 grid grid-cols-1 md:grid-cols-12 gap-10 text-black">
         {/* Left Column (4 cols) */}
-        <div className="md:col-span-4 flex flex-col gap-8">
+        <motion.div
+          className="md:col-span-4 flex flex-col gap-8"
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+        >
           {/* Portrait Image */}
           <img
             src="/hoangamuoi.png"
@@ -98,10 +112,16 @@ export default function About() {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Right Column (8 cols) */}
-        <div className="md:col-span-8 flex flex-col gap-10">
+        <motion.div
+          className="md:col-span-8 flex flex-col gap-10"
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
           {/* Header Info */}
           <div>
             <h2 className="text-5xl md:text-[5.5rem] font-playfair tracking-tight text-primary leading-none font-bold uppercase">
@@ -208,7 +228,7 @@ export default function About() {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -2,21 +2,30 @@
 
 import { useState, useEffect } from "react";
 
+const NAV_LINKS = [
+  { label: "Portfolio", href: "portfolio" },
+  { label: "About Me", href: "about" },
+  { label: "Contact", href: "contact" },
+];
+
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(window.scrollY > 50);
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    const target = document.getElementById(id);
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
 
   return (
     <header
@@ -25,7 +34,7 @@ export default function Header() {
         : "absolute top-0 left-0 w-full flex flex-row justify-end gap-6 px-8 md:px-16 py-8 bg-transparent text-primary"
         }`}
     >
-      {/* Decorative vertical/horizontal line to accent */}
+      {/* Decorative star accent when scrolled */}
       {isScrolled && (
         <span className="text-xs font-bold font-sans text-brand-bg/50 mb-1 select-none animate-pulse">
           ✦
@@ -39,27 +48,20 @@ export default function Header() {
           : "flex-row gap-6 text-sm font-semibold tracking-wider"
           }`}
       >
-        <a
-          href="#portfolio"
-          className={`hover:opacity-80 transition-opacity ${isScrolled ? "text-brand-bg border-b border-brand-bg/25 pb-1 w-full text-center" : ""
+        {NAV_LINKS.map((link, i) => (
+          <a
+            key={link.href}
+            href={`#${link.href}`}
+            onClick={(e) => handleNavClick(e, link.href)}
+            className={`hover:opacity-80 transition-opacity ${
+              isScrolled
+                ? `text-brand-bg pb-1 w-full text-center ${i < NAV_LINKS.length - 1 ? "border-b border-brand-bg/25" : ""}`
+                : ""
             }`}
-        >
-          Portfolio
-        </a>
-        <a
-          href="#about"
-          className={`hover:opacity-80 transition-opacity ${isScrolled ? "text-brand-bg border-b border-brand-bg/25 pb-1 w-full text-center" : ""
-            }`}
-        >
-          About Me
-        </a>
-        <a
-          href="#contact"
-          className={`hover:opacity-80 transition-opacity ${isScrolled ? "text-brand-bg pb-1 w-full text-center" : ""
-            }`}
-        >
-          Contact
-        </a>
+          >
+            {link.label}
+          </a>
+        ))}
       </nav>
     </header>
   );

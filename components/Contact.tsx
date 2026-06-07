@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 
 export default function Contact() {
   const [socialType, setSocialType] = useState<string>("facebook");
@@ -55,14 +56,26 @@ export default function Contact() {
       className="relative flex flex-col w-full min-h-screen bg-brand-bg select-none"
     >
       {/* Header Banner */}
-      <div className="w-full bg-primary py-4 px-8 md:px-16 flex items-center gap-2 shrink-0">
+      <motion.div
+        className="w-full bg-primary py-4 px-8 md:px-16 flex items-center gap-2 shrink-0"
+        initial={{ opacity: 0, x: -40 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+      >
         <span className="text-xl md:text-2xl text-brand-bg font-sans font-medium">✦</span>
         <h2 className="text-xl md:text-2xl text-brand-bg font-serif font-bold tracking-widest uppercase">
           CONTACT
         </h2>
-      </div>
+      </motion.div>
 
-      <div className="flex-1 max-w-2xl w-full mx-auto flex flex-col justify-center px-8 md:px-16 py-12 gap-8">
+      <motion.div
+        className="flex-1 max-w-2xl w-full mx-auto flex flex-col justify-center px-8 md:px-16 py-12 gap-8"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, delay: 0.15 }}
+      >
         {/* Header/Title */}
         <div className="text-center">
           <h3 className="font-playfair text-3xl font-bold text-primary tracking-wider uppercase border-b border-primary/20 pb-2 mb-3 inline-block">
@@ -188,7 +201,7 @@ export default function Contact() {
             </div>
           )}
         </form>
-      </div>
+      </motion.div>
     </section>
   );
 }
