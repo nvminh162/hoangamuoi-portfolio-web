@@ -26,97 +26,34 @@ export default function About() {
         </h2>
       </motion.div>
 
-      {/* Main Layout Grid */}
-      <div className="flex-1 max-w-6xl w-full mx-auto px-8 md:px-16 py-8 grid grid-cols-1 md:grid-cols-12 gap-10 text-black">
-        {/* Left Column (4 cols) */}
+      {/*
+        Layout strategy (mobile-first):
+          order-1: Photo          → top on mobile,  col-span-4 row-1 on desktop
+          order-2: Right column   → second on mobile, col-span-8 rows 1-2 on desktop
+          order-3: Contact + Work → bottom on mobile, col-span-4 row-2 on desktop
+        Desktop uses explicit grid placement so photo & right column share row 1,
+        and contact/work sits below photo in the same left column (row 2).
+      */}
+      <div className="flex-1 max-w-6xl w-full mx-auto px-8 md:px-16 py-8 grid grid-cols-1 md:grid-cols-12 md:grid-rows-[auto_1fr] gap-10 text-black">
+
+        {/* ── Photo ── order-1 on mobile │ col 1-4, row 1 on desktop */}
         <motion.div
-          className="md:col-span-4 flex flex-col gap-8"
+          className="order-1 md:col-span-4 md:row-start-1"
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
         >
-          {/* Portrait Image */}
           <img
             src="/hoangamuoi.png"
             alt="HOANG A MUOI"
-            className="w-full aspect-[3/4] object-cover border-2 border-primary rounded-none shadow-sm shrink-0"
+            className="w-full aspect-[3/4] object-cover border-2 border-primary rounded-none shadow-sm"
           />
-
-          {/* CONTACT */}
-          <div className="flex flex-col gap-4 shrink-0">
-            <h3 className="font-playfair text-2xl font-bold text-primary tracking-wider uppercase border-b border-primary/20 pb-1.5">
-              CONTACT
-            </h3>
-            <div className="text-sm space-y-3 font-semibold text-black/90">
-              <div className="flex items-center gap-3">
-                <ContactIcon icon={Calendar} />
-                <span>19 November 2005</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <ContactIcon icon={Phone} />
-                <span>+84 338673029</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <ContactIcon icon={Mail} />
-                <a href="mailto:hoangsun1911@gmail.com" className="hover:underline">
-                  hoangsun1911@gmail.com
-                </a>
-              </div>
-              <div className="flex items-start gap-3">
-                <ContactIcon icon={MapPin} />
-                <span className="leading-snug">
-                  Le Duc Tho, Go Vap, HCMC, Vietnam
-                </span>
-              </div>
-              <div className="flex items-center gap-3">
-                <ContactIcon icon={Linkedin} />
-                <a
-                  href="https://linkedin.com/in/hoangamuoi"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:underline"
-                >
-                  linkedin.com/in/hoangamuoi
-                </a>
-              </div>
-            </div>
-          </div>
-
-          {/* WORK EXPERIENCE */}
-          <div className="flex flex-col gap-4 shrink-0">
-            <h3 className="font-playfair text-2xl font-bold text-primary tracking-wider uppercase border-b border-primary/20 pb-1.5">
-              WORK EXPERIENCE
-            </h3>
-            <div className="space-y-4.5 text-sm">
-              <div>
-                <div className="flex justify-between font-bold text-black text-sm md:text-[0.95rem]">
-                  <span>DIEM HANG IELTS</span>
-                  <span className="font-mono text-xs text-black/70 font-semibold">01/2023 - Present</span>
-                </div>
-                <p className="text-black/85 font-semibold mt-0.5">Consultant</p>
-              </div>
-              <div>
-                <div className="flex justify-between font-bold text-black text-sm md:text-[0.95rem]">
-                  <span>PRIVATE TUTOR</span>
-                  <span className="font-mono text-xs text-black/70 font-semibold">10/2023 - 09/2024</span>
-                </div>
-                <p className="text-black/85 font-semibold mt-0.5">Private and Personal Tutor</p>
-              </div>
-              <div>
-                <div className="flex justify-between font-bold text-black text-sm md:text-[0.95rem]">
-                  <span>BAMBI ENGLISH</span>
-                  <span className="font-mono text-xs text-black/70 font-semibold">08/2023 - 01/2024</span>
-                </div>
-                <p className="text-black/85 font-semibold mt-0.5">Teaching Assistant</p>
-              </div>
-            </div>
-          </div>
         </motion.div>
 
-        {/* Right Column (8 cols) */}
+        {/* ── Right Column ── order-2 on mobile │ col 5-12, rows 1-2 on desktop */}
         <motion.div
-          className="md:col-span-8 flex flex-col gap-10"
+          className="order-2 md:col-span-8 md:row-start-1 md:row-span-2 flex flex-col gap-10"
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
@@ -172,7 +109,7 @@ export default function About() {
 
           {/* SUB-GRID: 2x2 flat layout for perfect horizontal alignment */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-8">
-            {/* Row 1: SKILLS & LANGUAGES */}
+            {/* SKILLS */}
             <div className="flex flex-col gap-2">
               <h3 className="font-playfair text-2xl font-bold text-primary tracking-wider uppercase border-b border-primary/20 pb-1.5 mb-2">
                 SKILLS
@@ -186,6 +123,7 @@ export default function About() {
               </ul>
             </div>
 
+            {/* LANGUAGES */}
             <div className="flex flex-col gap-2">
               <h3 className="font-playfair text-2xl font-bold text-primary tracking-wider uppercase border-b border-primary/20 pb-1.5 mb-2">
                 LANGUAGES
@@ -206,7 +144,7 @@ export default function About() {
               </div>
             </div>
 
-            {/* Row 2: CERTIFICATES & EDUCATION */}
+            {/* CERTIFICATES */}
             <div className="flex flex-col gap-2">
               <h3 className="font-playfair text-2xl font-bold text-primary tracking-wider uppercase border-b border-primary/20 pb-1.5 mb-2">
                 CERTIFICATES
@@ -218,6 +156,7 @@ export default function About() {
               </ul>
             </div>
 
+            {/* EDUCATION */}
             <div className="flex flex-col gap-2">
               <h3 className="font-playfair text-2xl font-bold text-primary tracking-wider uppercase border-b border-primary/20 pb-1.5 mb-2">
                 EDUCATION
@@ -229,6 +168,84 @@ export default function About() {
             </div>
           </div>
         </motion.div>
+
+        {/* ── Contact + Work Experience ── order-3 on mobile │ col 1-4, row 2 on desktop */}
+        <motion.div
+          className="order-3 md:col-span-4 md:row-start-2 flex flex-col gap-8"
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+        >
+          {/* CONTACT */}
+          <div className="flex flex-col gap-4 shrink-0">
+            <h3 className="font-playfair text-2xl font-bold text-primary tracking-wider uppercase border-b border-primary/20 pb-1.5">
+              CONTACT
+            </h3>
+            <div className="text-sm space-y-3 font-semibold text-black/90">
+              <div className="flex items-center gap-3">
+                <ContactIcon icon={Calendar} />
+                <span>19 November 2005</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <ContactIcon icon={Phone} />
+                <span>+84 338673029</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <ContactIcon icon={Mail} />
+                <a href="mailto:hoangsun1911@gmail.com" className="hover:underline">
+                  hoangsun1911@gmail.com
+                </a>
+              </div>
+              <div className="flex items-start gap-3">
+                <ContactIcon icon={MapPin} />
+                <span className="leading-snug">Le Duc Tho, Go Vap, HCMC, Vietnam</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <ContactIcon icon={Linkedin} />
+                <a
+                  href="https://linkedin.com/in/hoangamuoi"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:underline"
+                >
+                  linkedin.com/in/hoangamuoi
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* WORK EXPERIENCE */}
+          <div className="flex flex-col gap-4 shrink-0">
+            <h3 className="font-playfair text-2xl font-bold text-primary tracking-wider uppercase border-b border-primary/20 pb-1.5">
+              WORK EXPERIENCE
+            </h3>
+            <div className="space-y-4 text-sm">
+              <div>
+                <div className="flex justify-between font-bold text-black text-sm md:text-[0.95rem]">
+                  <span>DIEM HANG IELTS</span>
+                  <span className="font-mono text-xs text-black/70 font-semibold">01/2023 - Present</span>
+                </div>
+                <p className="text-black/85 font-semibold mt-0.5">Consultant</p>
+              </div>
+              <div>
+                <div className="flex justify-between font-bold text-black text-sm md:text-[0.95rem]">
+                  <span>PRIVATE TUTOR</span>
+                  <span className="font-mono text-xs text-black/70 font-semibold">10/2023 - 09/2024</span>
+                </div>
+                <p className="text-black/85 font-semibold mt-0.5">Private and Personal Tutor</p>
+              </div>
+              <div>
+                <div className="flex justify-between font-bold text-black text-sm md:text-[0.95rem]">
+                  <span>BAMBI ENGLISH</span>
+                  <span className="font-mono text-xs text-black/70 font-semibold">08/2023 - 01/2024</span>
+                </div>
+                <p className="text-black/85 font-semibold mt-0.5">Teaching Assistant</p>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
       </div>
     </section>
   );
