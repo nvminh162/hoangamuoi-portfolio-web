@@ -60,45 +60,6 @@ export default function ThankYou() {
               2026
             </motion.span>
           </div>
-
-          {/* Vertical Contact Info Column */}
-          <motion.div 
-            className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-8 text-center max-w-2xl w-full"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.5, staggerChildren: 0.1 }}
-          >
-            <div className="flex flex-col items-center">
-              <span className="text-xs md:text-sm font-playfair font-black uppercase tracking-wider text-black">
-                PHONE:
-              </span>
-              <span className="text-sm md:text-base font-sans font-extrabold text-black/90 mt-1">
-                +84 338673029
-              </span>
-            </div>
-            <div className="flex flex-col items-center">
-              <span className="text-xs md:text-sm font-playfair font-black uppercase tracking-wider text-black">
-                GMAIL:
-              </span>
-              <span className="text-sm md:text-base font-sans font-extrabold text-black/90 mt-1">
-                hoangsun1911@gmail.com
-              </span>
-            </div>
-            <div className="flex flex-col items-center">
-              <span className="text-xs md:text-sm font-playfair font-black uppercase tracking-wider text-black">
-                LINKEDIN:
-              </span>
-              <a 
-                href="https://linkedin.com/in/hoangamuoi" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="text-sm md:text-base font-sans font-extrabold text-primary hover:underline mt-1"
-              >
-                linkedin.com/in/hoangamuoi
-              </a>
-            </div>
-          </motion.div>
         </div>
       </div>
     </section>
