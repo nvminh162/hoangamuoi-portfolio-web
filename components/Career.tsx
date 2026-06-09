@@ -4,10 +4,10 @@ import { motion } from "framer-motion";
 
 export default function Career() {
   const goals = [
-    "Improve qualifications and soft skills to serve as a strong foundation for development in the teaching field.",
-    "Participate in specialized activities and modern seminars to learn and expand field-specific knowledge.",
-    "Leverage English Linguistics background (Honors) and IELTS 8.5 to provide excellent guidance.",
-    "Acquire a Master's degree in Applied Linguistics to advance as a university lecturer specializing in languages."
+    "Improve qualifications and soft skills to serve as a foundation for development in the teaching field.",
+    "Participate in specialized activities to learn about the field you pursue and improve your knowledge.",
+    "Graduated with Honors in English Language and achieved IELTS 8.5.",
+    "Teach classes at the center and continue to study for a master's degree to become a lecturer at a university specializing in languages"
   ];
 
   return (
@@ -47,15 +47,14 @@ export default function Career() {
               return (
                 <div
                   key={idx}
-                  className={`flex flex-col md:flex-row items-start md:items-center ${
-                    isLeft ? "md:flex-row-reverse" : ""
-                  }`}
+                  className={`flex flex-col md:flex-row items-start md:items-center ${isLeft ? "md:flex-row-reverse" : ""
+                    }`}
                 >
                   {/* Spacer (Desktop Only) */}
                   <div className="w-full md:w-1/2 hidden md:block"></div>
 
                   {/* Timeline Node Dot */}
-                  <motion.div 
+                  <motion.div
                     className="absolute left-[26px] md:left-1/2 md:-translate-x-1/2 w-5 h-5 rounded-full bg-primary border-4 border-brand-bg z-10"
                     initial={{ scale: 0 }}
                     whileInView={{ scale: 1 }}

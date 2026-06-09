@@ -13,8 +13,8 @@ export default function Skills() {
 
   const languages = [
     { name: "Vietnamese", desc: "Native Speaker", percentage: 100 },
-    { name: "English", desc: "Advanced (IELTS 8.5)", percentage: 90 },
-    { name: "Chinese", desc: "Conversational", percentage: 55 }
+    { name: "English", desc: "Advanced", percentage: 80 },
+    { name: "Chinese", desc: "Conversational", percentage: 50 }
   ];
 
   return (
@@ -34,7 +34,7 @@ export default function Skills() {
 
       <div className="flex-1 w-full max-w-6xl mx-auto px-8 md:px-16 py-12 flex items-center justify-center text-black">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 w-full items-start">
-          
+
           {/* Skills (Left Column - 7 cols) */}
           <motion.div
             className="lg:col-span-7 flex flex-col gap-6"
@@ -94,7 +94,7 @@ export default function Skills() {
             {/* Circular dials container */}
             <div className="flex flex-col sm:flex-row lg:flex-col gap-6 mt-6">
               {languages.map((lang, idx) => {
-                const radius = 32;
+                const radius = 28;
                 const circumference = 2 * Math.PI * radius;
                 const offset = circumference - (lang.percentage / 100) * circumference;
 
@@ -102,7 +102,7 @@ export default function Skills() {
                   <div key={idx} className="flex items-center gap-4 bg-white/40 border border-primary/5 p-4 rounded-2xl shadow-sm hover:shadow transition-shadow flex-1">
                     {/* SVG Circular Ring */}
                     <div className="relative w-16 h-16 shrink-0 flex items-center justify-center">
-                      <svg className="w-full h-full transform -rotate-90">
+                      <svg viewBox="0 0 64 64" className="w-full h-full transform -rotate-90">
                         {/* Background track circle */}
                         <circle
                           cx="32"

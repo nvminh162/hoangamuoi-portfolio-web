@@ -52,18 +52,12 @@ export default function About() {
               </h2>
               
               <p className="text-xs md:text-sm font-sans font-black tracking-[0.18em] text-black uppercase mt-3 mb-5">
-                TEACHING ASSISTANT | COURSE CONSULTANT | ENGLISH LINGUISTICS
+                TEACHING ASSISTANT
               </p>
               
               <div className="space-y-4 text-sm md:text-base leading-relaxed text-justify text-black/90 font-semibold">
                 <p>
-                  Hello, I am Hoang A Muoi – an English Language Teaching Assistant passionate about creating engaging and effective language learning environments!
-                </p>
-                <p>
-                  I am highly responsible, adaptable, and quick to absorb new methodologies. I specialize in class assistance, course consultation, and training children for Cambridge certificates (Starters, Movers, Flyers). Over my teaching journey, I have successfully supported students in improving their core communication skills and confidence.
-                </p>
-                <p>
-                  I hope this portfolio highlights my pedagogical mindset, dedication, and potential as a language education specialist ready to contribute maximum value.
+                  I am a responsible person and have the ability to integrate quickly. I am always ready to learn new things and can absorb them quickly. I hope that I can achieve great achievements in my work as well as bring many benefits to the company.
                 </p>
               </div>
             </div>
