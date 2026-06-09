@@ -59,12 +59,12 @@ export default function Education() {
             </div>
 
             <motion.div 
-              className="bg-white/50 border border-primary/15 p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow relative overflow-hidden flex flex-col md:flex-row gap-6 items-start"
+              className="bg-white/50 border border-primary/15 p-5 rounded-2xl shadow-sm hover:shadow-md transition-shadow relative overflow-hidden flex flex-row gap-5 items-start"
               whileHover={{ y: -4 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
               {/* University Logo Box */}
-              <div className="w-16 h-16 bg-white border border-primary/10 rounded-xl overflow-hidden shadow-sm flex items-center justify-center p-2 shrink-0">
+              <div className="w-12 h-12 bg-white border border-primary/10 rounded-xl overflow-hidden shadow-sm flex items-center justify-center p-1.5 shrink-0">
                 <img
                   src="/education/university/iuh.png"
                   alt="Industrial University of Ho Chi Minh City"
@@ -72,17 +72,17 @@ export default function Education() {
                 />
               </div>
               
-              <div className="space-y-2.5">
-                <h4 className="font-extrabold text-black uppercase text-lg md:text-xl leading-snug">
+              <div className="flex-1 flex flex-col">
+                <h4 className="font-extrabold text-black uppercase text-sm md:text-base leading-snug">
                   {t("uni")}
                 </h4>
-                <p className="text-black/85 font-semibold text-sm md:text-base">
+                <p className="text-black/85 font-semibold text-xs md:text-sm mt-0.5">
                   {t("major")}
                 </p>
-                <p className="text-xs text-black/60 font-semibold">
+                <p className="text-[11px] text-black/60 font-semibold mt-1">
                   {t("location")}
                 </p>
-                <div className="inline-block px-3 py-1 bg-primary/10 border border-primary/20 text-primary font-mono text-xs md:text-sm font-bold rounded-lg mt-1">
+                <div className="w-fit px-2 py-0.5 bg-primary/10 border border-primary/20 text-primary font-mono text-[10px] md:text-xs font-bold rounded mt-2">
                   {t("period")}
                 </div>
               </div>
