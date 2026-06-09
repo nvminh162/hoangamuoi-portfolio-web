@@ -1,8 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 export default function Skills() {
+  const t = useTranslations("Skills");
+
   const skills = [
     { name: "Teamwork", level: 95 },
     { name: "Effective Communication", level: 90 },
@@ -12,9 +15,9 @@ export default function Skills() {
   ];
 
   const languages = [
-    { name: "Vietnamese", desc: "Native Speaker", flag: "/skill/vietnam.png" },
-    { name: "English", desc: "Advanced", flag: "/skill/english.png" },
-    { name: "Chinese", desc: "Conversational", flag: "/skill/china.png" }
+    { name: "Vietnamese", desc: t("languages.Vietnamese_desc"), flag: "/skill/vietnam.png" },
+    { name: "English", desc: t("languages.English_desc"), flag: "/skill/english.png" },
+    { name: "Chinese", desc: t("languages.Chinese_desc"), flag: "/skill/china.png" }
   ];
 
   return (
@@ -28,7 +31,7 @@ export default function Skills() {
         transition={{ duration: 0.5 }}
       >
         <h2 className="text-2xl md:text-3xl lg:text-4xl text-brand-bg font-serif font-bold tracking-[0.2em] uppercase text-center">
-          SKILLS
+          {t("title")}
         </h2>
       </motion.div>
 
@@ -45,18 +48,18 @@ export default function Skills() {
           >
             <div>
               <h3 className="font-playfair text-2xl md:text-3xl font-bold text-primary tracking-wider uppercase inline-block border-b border-primary/20 pb-2 mb-2">
-                PROFESSIONAL SKILLS
+                {t("subtitle")}
               </h3>
               <p className="text-[10px] md:text-xs text-black/60 font-semibold uppercase tracking-widest mt-1">
-                Core competencies and capabilities
-            </p>
+                {t("desc")}
+              </p>
             </div>
 
             <div className="space-y-5 mt-4">
               {skills.map((skill, idx) => (
                 <div key={idx} className="space-y-1.5">
                   <div className="flex justify-between items-center text-sm font-bold text-black/90">
-                    <span>{skill.name}</span>
+                    <span>{t("skills." + skill.name)}</span>
                     <span className="text-primary font-mono text-xs">{skill.level}%</span>
                   </div>
                   {/* Progress Bar Container */}
@@ -84,10 +87,10 @@ export default function Skills() {
           >
             <div>
               <h3 className="font-playfair text-2xl md:text-3xl font-bold text-primary tracking-wider uppercase inline-block border-b border-primary/20 pb-2 mb-2">
-                LANGUAGES
+                {t("langTitle")}
               </h3>
               <p className="text-[10px] md:text-xs text-black/60 font-semibold uppercase tracking-widest mt-1">
-                Linguistic proficiencies
+                {t("langDesc")}
               </p>
             </div>
 
@@ -107,7 +110,7 @@ export default function Skills() {
 
                     <div className="flex flex-col">
                       <span className="font-bold text-black/95 text-base leading-snug">
-                        {lang.name}
+                        {t("languages." + lang.name)}
                       </span>
                       <span className="text-xs text-black/60 font-semibold font-mono tracking-wide mt-0.5">
                         {lang.desc}

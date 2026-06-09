@@ -1,8 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 export default function About() {
+  const t = useTranslations("About");
+
   return (
     <section id="about" className="w-full min-h-screen bg-brand-bg flex flex-col justify-between">
       {/* Header Banner */}
@@ -14,7 +17,7 @@ export default function About() {
         transition={{ duration: 0.5 }}
       >
         <h2 className="text-2xl md:text-3xl lg:text-4xl text-brand-bg font-serif font-bold tracking-[0.2em] uppercase text-center">
-          ABOUT
+          {t("title")}
         </h2>
       </motion.div>
 
@@ -52,12 +55,12 @@ export default function About() {
               </h2>
               
               <p className="text-xs md:text-sm font-sans font-black tracking-[0.18em] text-black uppercase mt-3 mb-5">
-                TEACHING ASSISTANT
+                {t("role")}
               </p>
               
               <div className="space-y-4 text-sm md:text-base leading-relaxed text-justify text-black/90 font-semibold">
                 <p>
-                  I am a responsible person and have the ability to integrate quickly. I am always ready to learn new things and can absorb them quickly. I hope that I can achieve great achievements in my work as well as bring many benefits to the company.
+                  {t("bio")}
                 </p>
               </div>
             </div>

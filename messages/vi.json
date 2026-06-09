@@ -1,0 +1,144 @@
+{
+  "Header": {
+    "portfolio": "Portfolio",
+    "about": "Giới thiệu",
+    "career": "Mục tiêu",
+    "experience": "Kinh nghiệm",
+    "skills": "Kỹ năng",
+    "education": "Học vấn",
+    "contact": "Liên hệ"
+  },
+  "PortfolioHero": {
+    "tag": "Ngôn Ngữ Anh",
+    "title": "PORTFOLIO"
+  },
+  "About": {
+    "title": "GIỚI THIỆU",
+    "role": "TRỢ GIẢNG TIẾNG ANH",
+    "bio": "Tôi là một người có tinh thần trách nhiệm cao và có khả năng hòa nhập nhanh chóng. Tôi luôn sẵn sàng học hỏi những điều mới và tiếp thu chúng một cách nhanh chóng. Tôi hy vọng rằng bản thân có thể đạt được những thành tựu lớn trong công việc cũng như đem lại nhiều lợi ích cho công ty."
+  },
+  "Career": {
+    "title": "MỤC TIÊU",
+    "subtitle": "LỘ TRÌNH SỰ NGHIỆP",
+    "desc": "Các cột mốc được hoạch định rõ ràng, mục tiêu nghề nghiệp và định hướng phát triển trong lĩnh vực giáo dục của tôi.",
+    "goals": [
+      "Nâng cao năng lực chuyên môn và các kỹ năng mềm để làm nền tảng phát triển trong lĩnh vực giảng dạy.",
+      "Tham gia các hoạt động chuyên ngành để tìm hiểu sâu hơn về lĩnh vực đang theo đuổi và trau dồi kiến thức chuyên môn.",
+      "Tốt nghiệp loại Giỏi ngành Ngôn ngữ Anh và đạt chứng chỉ IELTS 8.5.",
+      "Giảng dạy tại các trung tâm và tiếp tục học cao học để trở thành giảng viên đại học chuyên ngành ngôn ngữ."
+    ]
+  },
+  "Experience": {
+    "title": "KINH NGHIỆM",
+    "subtitle": "NƠI TÔI ĐÃ LÀM VIỆC",
+    "desc": "Từ năm 2023, tôi đã có cơ hội được làm việc tại các trung tâm giáo dục và đồng hành cùng nhiều học viên cá nhân, giúp tôi trau dồi tư duy sư phạm, kỹ năng giao tiếp và năng lực ngôn ngữ.",
+    "diem-hang": {
+      "role": "Tư vấn viên",
+      "location": "Hà Nội, Việt Nam (Online)",
+      "bullets": [
+        "Tư vấn các khóa học phù hợp với trình độ và nhu cầu của khách hàng.",
+        "Chăm sóc khách hàng."
+      ]
+    },
+    "private-tutor": {
+      "role": "Gia sư Tiếng Anh Tự do",
+      "location": "TP.HCM, Việt Nam",
+      "bullets": [
+        "Hỗ trợ các học viên mất gốc đạt được kỹ năng giao tiếp cơ bản.",
+        "Hỗ trợ học viên phát triển toàn diện các kỹ năng nghe, nói, đọc, viết thông qua lộ trình cá nhân hóa.",
+        "Theo dõi sát sao tiến độ học tập và đưa ra phản hồi mang tính xây dựng nhằm giúp học viên vượt qua khó khăn trong học tập."
+      ]
+    },
+    "bambi": {
+      "role": "Trợ giảng",
+      "location": "TP.HCM, Việt Nam",
+      "bullets": [
+        "Giảng dạy tiếng Anh tại trung tâm cho trẻ em ôn luyện chứng chỉ Starters, Movers và Flyers."
+      ]
+    },
+    "tpp-academy": {
+      "role": "Trợ giảng",
+      "location": "TP.HCM, Việt Nam",
+      "bullets": [
+        "Hỗ trợ giáo viên chuẩn bị và triển khai các hoạt động trên lớp cùng tài liệu học tập.",
+        "Hỗ trợ học viên phát triển kỹ năng giao tiếp tiếng Anh thông qua việc hướng dẫn và thực hành ngay trên lớp.",
+        "Dạy bổ trợ cho học viên có học lực yếu và theo dõi sát sao tiến độ học tập của các em.",
+        "Hỗ trợ quản lý lớp học và duy trì môi trường học tập tích cực.",
+        "Hỗ trợ học viên đạt điểm mục tiêu, bao gồm chứng chỉ TOEIC 600+ và VSTEP B1-B2."
+      ]
+    },
+    "interpreter": {
+      "role": "Phiên dịch viên",
+      "bullets": [
+        "Phiên dịch chính xác giữa tiếng Việt và tiếng Anh trong các cuộc họp, thảo luận và giao tiếp hàng ngày.",
+        "Hỗ trợ giao tiếp hiệu quả giữa khách hàng, đối tác và các thành viên trong nhóm đến từ nhiều quốc gia khác nhau.",
+        "Có kinh nghiệm tham gia tập huấn về phương pháp giảng dạy tiếng Việt cho người nước ngoài."
+      ]
+    }
+  },
+  "Skills": {
+    "title": "KỸ NĂNG",
+    "subtitle": "KỸ NĂNG CHUYÊN MÔN",
+    "desc": "Các năng lực cốt lõi và thế mạnh nghề nghiệp",
+    "skills": {
+      "Teamwork": "Làm việc nhóm",
+      "Effective Communication": "Giao tiếp hiệu quả",
+      "Effective Multi-tasking": "Quản lý đa nhiệm hiệu quả",
+      "Trilingual Capabilities": "Khả năng sử dụng 3 ngôn ngữ",
+      "MOS Certificate": "Chứng chỉ tin học văn phòng MOS"
+    },
+    "langTitle": "NGOẠI NGỮ",
+    "langDesc": "Khả năng sử dụng ngôn ngữ",
+    "languages": {
+      "Vietnamese": "Tiếng Việt",
+      "Vietnamese_desc": "Tiếng mẹ đẻ",
+      "English": "Tiếng Anh",
+      "English_desc": "Cao cấp",
+      "Chinese": "Tiếng Trung",
+      "Chinese_desc": "Giao tiếp cơ bản"
+    }
+  },
+  "Education": {
+    "title": "HỌC VẤN",
+    "subtitle": "HỌC VẤN",
+    "desc": "Quá trình học tập",
+    "uni": "Trường Đại học Công nghiệp Thành phố Hồ Chí Minh",
+    "major": "Ngôn ngữ Anh",
+    "location": "Địa điểm: Gò Vấp, TP.HCM, Việt Nam",
+    "period": "2023 - Hiện tại",
+    "certTitle": "CHỨNG CHỈ",
+    "certDesc": "Các chứng chỉ chuyên môn",
+    "certs": {
+      "IELTS Academic": "IELTS Academic",
+      "HSK3 Certificate": "Chứng chỉ HSK3",
+      "Microsoft Office Specialist (MOS)": "Chứng chỉ tin học văn phòng MOS"
+    }
+  },
+  "Contact": {
+    "title": "LIÊN HỆ",
+    "subtitle": "GỬI TIN NHẮN",
+    "desc": "Điền thông tin vào biểu mẫu dưới đây để gửi tin nhắn cho tôi",
+    "form": {
+      "name": "Họ và tên",
+      "name_placeholder": "VD: Nguyễn Văn A",
+      "email": "Địa chỉ Email",
+      "email_placeholder": "VD: nguyenvana@gmail.com",
+      "social": "Mạng xã hội (Không bắt buộc)",
+      "social_placeholder_zalo": "VD: 0338673029 hoặc link zalo.me",
+      "social_placeholder_other": "VD: hoangsun1911 hoặc link Facebook/Instagram",
+      "message": "Tin nhắn gửi cho tôi",
+      "message_placeholder": "Nhập tin nhắn của bạn tại đây...",
+      "submit": "GỬI TIN NHẮN",
+      "submitting": "ĐANG GỬI..."
+    },
+    "directTitle": "LIÊN HỆ TRỰC TIẾP",
+    "directDesc": "Liên hệ trực tiếp với tôi qua các nền tảng sau"
+  },
+  "ThankYou": {
+    "title": "CẢM ƠN",
+    "tag": "PORTFOLIO"
+  },
+  "Footer": {
+    "text": "Thiết kế & Phát triển bởi"
+  }
+}

@@ -2,9 +2,10 @@
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-
+import { useTranslations } from "next-intl";
 
 export default function Contact() {
+  const t = useTranslations("Contact");
   const [socialType, setSocialType] = useState<string>("facebook");
   const [socialUsername, setSocialUsername] = useState<string>("");
   const [honeypot, setHoneypot] = useState<string>("");
@@ -103,7 +104,7 @@ export default function Contact() {
         transition={{ duration: 0.5 }}
       >
         <h2 className="text-2xl md:text-3xl lg:text-4xl text-brand-bg font-serif font-bold tracking-[0.2em] uppercase text-center">
-          CONTACT
+          {t("title")}
         </h2>
       </motion.div>
 
@@ -121,10 +122,10 @@ export default function Contact() {
           >
             <div>
               <h3 className="font-playfair text-2xl md:text-3xl font-bold text-primary tracking-wider uppercase border-b border-primary/20 pb-2 mb-2 inline-block">
-                SEND A MESSAGE
+                {t("subtitle")}
               </h3>
               <p className="text-[10px] md:text-xs text-black/60 font-semibold uppercase tracking-widest mt-1">
-                Fill in the details below to contact me
+                {t("desc")}
               </p>
             </div>
 
@@ -142,7 +143,7 @@ export default function Contact() {
               {/* Full Name */}
               <div className="flex flex-col gap-1.5">
                 <label htmlFor="fullname" className="text-[10px] md:text-xs font-bold uppercase tracking-wider text-black/75">
-                  Full Name
+                  {t("form.name")}
                 </label>
                 <input
                   type="text"
@@ -150,14 +151,14 @@ export default function Contact() {
                   name="fullname"
                   required
                   className="w-full bg-white/70 border border-primary/20 focus:border-primary focus:ring-1 focus:ring-primary text-black font-semibold text-sm px-4 py-3 rounded-xl outline-none shadow-sm transition-all"
-                  placeholder="e.g. John Doe"
+                  placeholder={t("form.name_placeholder")}
                 />
               </div>
 
               {/* Email Address */}
               <div className="flex flex-col gap-1.5">
                 <label htmlFor="email" className="text-[10px] md:text-xs font-bold uppercase tracking-wider text-black/75">
-                  Email Address
+                  {t("form.email")}
                 </label>
                 <input
                   type="email"
@@ -165,14 +166,14 @@ export default function Contact() {
                   name="email"
                   required
                   className="w-full bg-white/70 border border-primary/20 focus:border-primary focus:ring-1 focus:ring-primary text-black font-semibold text-sm px-4 py-3 rounded-xl outline-none shadow-sm transition-all"
-                  placeholder="e.g. johndoe@gmail.com"
+                  placeholder={t("form.email_placeholder")}
                 />
               </div>
 
               {/* Social Platform (Optional Input Group) */}
               <div className="flex flex-col gap-1.5">
                 <label htmlFor="socialUsername" className="text-[10px] md:text-xs font-bold uppercase tracking-wider text-black/75">
-                  Social Platform (Optional)
+                  {t("form.social")}
                 </label>
                 <div className="flex rounded-xl overflow-hidden border border-primary/20 bg-white/70 focus-within:border-primary focus-within:ring-1 focus-within:ring-primary shadow-sm transition-all">
                   <select
@@ -193,8 +194,8 @@ export default function Contact() {
                     className="flex-1 bg-transparent text-black font-semibold text-sm px-4 py-3 outline-none"
                     placeholder={
                       socialType === "zalo"
-                        ? "e.g. 0338673029 (Phone) or zalo.me link"
-                        : `e.g. hoangsun1911 or ${socialType === "facebook" ? "facebook.com" : "instagram.com"} link`
+                        ? t("form.social_placeholder_zalo")
+                        : t("form.social_placeholder_other")
                     }
                   />
                 </div>
@@ -203,7 +204,7 @@ export default function Contact() {
               {/* Message */}
               <div className="flex flex-col gap-1.5">
                 <label htmlFor="message" className="text-[10px] md:text-xs font-bold uppercase tracking-wider text-black/75">
-                  Your message for me
+                  {t("form.message")}
                 </label>
                 <textarea
                   id="message"
@@ -211,7 +212,7 @@ export default function Contact() {
                   required
                   rows={4}
                   className="w-full bg-white/70 border border-primary/20 focus:border-primary focus:ring-1 focus:ring-primary text-black font-semibold text-sm px-4 py-3 rounded-xl outline-none shadow-sm transition-all resize-none"
-                  placeholder="Type your message here..."
+                  placeholder={t("form.message_placeholder")}
                 />
               </div>
 
@@ -221,7 +222,7 @@ export default function Contact() {
                 disabled={isSubmitting}
                 className="w-full py-4 bg-primary text-brand-bg hover:opacity-90 active:scale-[0.99] transition-all font-bold text-xs md:text-sm tracking-widest uppercase rounded-xl shadow-md disabled:opacity-50 mt-1"
               >
-                {isSubmitting ? "SENDING..." : "SEND MESSAGE"}
+                {isSubmitting ? t("form.submitting") : t("form.submit")}
               </button>
 
               {/* Status Feedback */}
@@ -249,10 +250,10 @@ export default function Contact() {
           >
             <div>
               <h3 className="font-playfair text-2xl md:text-3xl font-bold text-primary tracking-wider uppercase border-b border-primary/20 pb-2 mb-2 inline-block">
-                DIRECT CONTACTS
+                {t("directTitle")}
               </h3>
               <p className="text-[10px] md:text-xs text-black/60 font-semibold uppercase tracking-widest mt-1">
-                Reach out to me directly on these platforms
+                {t("directDesc")}
               </p>
             </div>
 

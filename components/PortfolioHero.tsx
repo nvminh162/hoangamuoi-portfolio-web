@@ -1,8 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 export default function PortfolioHero() {
+  const t = useTranslations("PortfolioHero");
+
   return (
     <section 
       id="portfolio"
@@ -33,7 +36,7 @@ export default function PortfolioHero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9, ease: "easeOut" }}
             >
-              PORTFOLIO
+              {t("title")}
             </motion.h1>
 
             {/* English Language Tag */}
@@ -43,7 +46,7 @@ export default function PortfolioHero() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
             >
-              English Language
+              {t("tag")}
             </motion.span>
 
             {/* 2026 Tag */}

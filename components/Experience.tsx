@@ -2,6 +2,8 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
+
 interface ExperienceItem {
   id: string;
   company?: string;
@@ -13,66 +15,68 @@ interface ExperienceItem {
 }
 
 export default function Experience() {
+  const t = useTranslations("Experience");
+
   const experiences: ExperienceItem[] = [
     {
       id: "diem-hang",
       company: "DIEM HANG IELTS",
-      role: "Consultant",
+      role: t("diem-hang.role"),
       period: "01/2023 - Current",
-      location: "Hanoi, Vietnam (Online)",
+      location: t("diem-hang.location"),
       logo: "/experiance/diemhangielts.png",
       bullets: [
-        "Provide course consultation appropriate to customers' qualifications and needs.",
-        "Customer care.",
+        t("diem-hang.bullets.0"),
+        t("diem-hang.bullets.1"),
       ],
     },
     {
       id: "private-tutor",
-      role: "Private English Tutor",
+      role: t("private-tutor.role"),
       period: "6/2024 - Current",
-      location: "HCMC, Vietnam",
+      location: t("private-tutor.location"),
       logo: "/experiance/pet.jpg",
       bullets: [
-        "Support students with weak academic performance to achieve basic communication skills",
-        "Assist students in developing their listening, speaking, reading, and writing skills through personalized support.",
-        "Monitor students' progress and offer constructive feedback to help them overcome learning difficulties.",
+        t("private-tutor.bullets.0"),
+        t("private-tutor.bullets.1"),
+        t("private-tutor.bullets.2"),
       ],
     },
     {
       id: "bambi",
       company: "BAMBI ENGLISH",
-      role: "Teaching Assistant",
+      role: t("bambi.role"),
       period: "08/2023 - 01/2024",
-      location: "HCMC, Vietnam",
+      location: t("bambi.location"),
       logo: "/experiance/bambi.jpg",
       bullets: [
-        "Teaching English at the center for children to take Starters, Movers, and Flyers",
+        t("bambi.bullets.0"),
       ],
     },
     {
       id: "tpp-academy",
       company: "TPP Academy",
-      role: "Teaching Assistant",
+      role: t("tpp-academy.role"),
       period: "11/2024 – 05/2025",
-      location: "HCMC, Vietnam",
+      location: t("tpp-academy.location"),
       logo: "/experiance/tpp.jpg",
       bullets: [
-        "Assisted teachers in preparing and delivering classroom activities and learning materials.",
-        "Supported students in developing their English communication skills through in-class guidance and practice.",
-        "Provided additional assistance to students with weak academic performance and monitored their learning progress.",
-        "Helped manage classroom activities and maintained a positive learning environment.",
-        "Assisted students in achieving their target scores, including TOEIC 600+ and VSTEP B1–B2 certifications.",
+        t("tpp-academy.bullets.0"),
+        t("tpp-academy.bullets.1"),
+        t("tpp-academy.bullets.2"),
+        t("tpp-academy.bullets.3"),
+        t("tpp-academy.bullets.4"),
       ],
     },
     {
       id: "interpreter",
-      role: "Interpreter",
+      role: t("interpreter.role"),
       period: "03/2024 – Current",
       logo: "/experiance/interpreter.png",
       bullets: [
-        "Provide accurate interpretation between Vietnamese and English in meetings, discussions, and daily communications.",
-        "Facilitate effective communication between clients, partners, and team members from different linguistic backgrounds.",
-        "Experience participating in training on Vietnamese language teaching methods for foreigners.",
+        t("interpreter.bullets.0"),
+        t("interpreter.bullets.1"),
+        t("interpreter.bullets.2"),
       ],
     },
   ];
@@ -88,7 +92,7 @@ export default function Experience() {
         transition={{ duration: 0.5 }}
       >
         <h2 className="text-2xl md:text-3xl lg:text-4xl text-brand-bg font-serif font-bold tracking-[0.2em] uppercase text-center">
-          EXPERIENCE
+          {t("title")}
         </h2>
       </motion.div>
 
@@ -97,10 +101,10 @@ export default function Experience() {
         {/* Intro */}
         <div className="mb-12 flex flex-col items-center text-center">
           <h3 className="font-playfair text-2xl md:text-3xl font-bold text-primary tracking-wider uppercase inline-block border-b border-primary/20 pb-2 mb-2">
-            PLACES I'VE WORKED
+            {t("subtitle")}
           </h3>
           <p className="text-xs md:text-sm font-semibold text-black/75 max-w-2xl leading-relaxed mt-2">
-            Since 2023, I have had the privilege to work with educational centers and individual students, enabling me to hone my pedagogical mindset, communication skills, and linguistics capabilities.
+            {t("desc")}
           </p>
         </div>
 

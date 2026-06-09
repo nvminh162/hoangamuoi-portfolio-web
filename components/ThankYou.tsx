@@ -1,8 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 export default function ThankYou() {
+  const t = useTranslations("ThankYou");
+
   return (
     <section 
       id="thankyou"
@@ -35,7 +38,7 @@ export default function ThankYou() {
               viewport={{ once: true }}
               transition={{ duration: 0.9, ease: "easeOut" }}
             >
-              THANK YOU
+              {t("title")}
             </motion.h1>
 
             {/* Portfolio Tag */}
@@ -46,7 +49,7 @@ export default function ThankYou() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              PORTFOLIO
+              {t("tag")}
             </motion.span>
 
             {/* 2026 Tag */}

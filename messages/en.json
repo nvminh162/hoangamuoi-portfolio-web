@@ -1,0 +1,144 @@
+{
+  "Header": {
+    "portfolio": "Portfolio",
+    "about": "About",
+    "career": "Goals",
+    "experience": "Experience",
+    "skills": "Skills",
+    "education": "Education",
+    "contact": "Contact"
+  },
+  "PortfolioHero": {
+    "tag": "English Language",
+    "title": "PORTFOLIO"
+  },
+  "About": {
+    "title": "ABOUT",
+    "role": "TEACHING ASSISTANT",
+    "bio": "I am a responsible person and have the ability to integrate quickly. I am always ready to learn new things and can absorb them quickly. I hope that I can achieve great achievements in my work as well as bring many benefits to the company."
+  },
+  "Career": {
+    "title": "GOALS",
+    "subtitle": "CAREER PATHWAY",
+    "desc": "My structured milestones, professional targets, and developmental directions in education.",
+    "goals": [
+      "Improve qualifications and soft skills to serve as a foundation for development in the teaching field.",
+      "Participate in specialized activities to learn about the field you pursue and improve your knowledge.",
+      "Graduated with Honors in English Language and achieved IELTS 8.5.",
+      "Teach classes at the center and continue to study for a master's degree to become a lecturer at a university specializing in languages"
+    ]
+  },
+  "Experience": {
+    "title": "EXPERIENCE",
+    "subtitle": "PLACES I'VE WORKED",
+    "desc": "Since 2023, I have had the privilege to work with educational centers and individual students, enabling me to hone my pedagogical mindset, communication skills, and linguistics capabilities.",
+    "diem-hang": {
+      "role": "Consultant",
+      "location": "Hanoi, Vietnam (Online)",
+      "bullets": [
+        "Provide course consultation appropriate to customers' qualifications and needs.",
+        "Customer care."
+      ]
+    },
+    "private-tutor": {
+      "role": "Private English Tutor",
+      "location": "HCMC, Vietnam",
+      "bullets": [
+        "Support students with weak academic performance to achieve basic communication skills",
+        "Assist students in developing their listening, speaking, reading, and writing skills through personalized support.",
+        "Monitor students' progress and offer constructive feedback to help them overcome learning difficulties."
+      ]
+    },
+    "bambi": {
+      "role": "Teaching Assistant",
+      "location": "HCMC, Vietnam",
+      "bullets": [
+        "Teaching English at the center for children to take Starters, Movers, and Flyers"
+      ]
+    },
+    "tpp-academy": {
+      "role": "Teaching Assistant",
+      "location": "HCMC, Vietnam",
+      "bullets": [
+        "Assisted teachers in preparing and delivering classroom activities and learning materials.",
+        "Supported students in developing their English communication skills through in-class guidance and practice.",
+        "Provided additional assistance to students with weak academic performance and monitored their learning progress.",
+        "Helped manage classroom activities and maintained a positive learning environment.",
+        "Assisted students in achieving their target scores, including TOEIC 600+ and VSTEP B1–B2 certifications."
+      ]
+    },
+    "interpreter": {
+      "role": "Interpreter",
+      "bullets": [
+        "Provide accurate interpretation between Vietnamese and English in meetings, discussions, and daily communications.",
+        "Facilitate effective communication between clients, partners, and team members from different linguistic backgrounds.",
+        "Experience participating in training on Vietnamese language teaching methods for foreigners."
+      ]
+    }
+  },
+  "Skills": {
+    "title": "SKILLS",
+    "subtitle": "PROFESSIONAL SKILLS",
+    "desc": "Core competencies and capabilities",
+    "skills": {
+      "Teamwork": "Teamwork",
+      "Effective Communication": "Effective Communication",
+      "Effective Multi-tasking": "Effective Multi-tasking",
+      "Trilingual Capabilities": "Trilingual Capabilities",
+      "MOS Certificate": "MOS Certificate"
+    },
+    "langTitle": "LANGUAGES",
+    "langDesc": "Linguistic proficiencies",
+    "languages": {
+      "Vietnamese": "Vietnamese",
+      "Vietnamese_desc": "Native Speaker",
+      "English": "English",
+      "English_desc": "Advanced",
+      "Chinese": "Chinese",
+      "Chinese_desc": "Conversational"
+    }
+  },
+  "Education": {
+    "title": "EDUCATION",
+    "subtitle": "EDUCATION",
+    "desc": "Academic background",
+    "uni": "Industrial University of Ho Chi Minh City",
+    "major": "English Linguistics",
+    "location": "Location: Go Vap, HCMC, Vietnam",
+    "period": "2023 - Present",
+    "certTitle": "CERTIFICATES",
+    "certDesc": "Professional certifications",
+    "certs": {
+      "IELTS Academic": "IELTS Academic",
+      "HSK3 Certificate": "HSK3 Certificate",
+      "Microsoft Office Specialist (MOS)": "Microsoft Office Specialist (MOS)"
+    }
+  },
+  "Contact": {
+    "title": "CONTACT",
+    "subtitle": "SEND A MESSAGE",
+    "desc": "Fill in the details below to contact me",
+    "form": {
+      "name": "Full Name",
+      "name_placeholder": "e.g. John Doe",
+      "email": "Email Address",
+      "email_placeholder": "e.g. johndoe@gmail.com",
+      "social": "Social Platform (Optional)",
+      "social_placeholder_zalo": "e.g. 0338673029 (Phone) or zalo.me link",
+      "social_placeholder_other": "e.g. hoangsun1911 or facebook.com/instagram.com link",
+      "message": "Your message for me",
+      "message_placeholder": "Type your message here...",
+      "submit": "SEND MESSAGE",
+      "submitting": "SENDING..."
+    },
+    "directTitle": "DIRECT CONTACTS",
+    "directDesc": "Reach out to me directly on these platforms"
+  },
+  "ThankYou": {
+    "title": "THANK YOU",
+    "tag": "PORTFOLIO"
+  },
+  "Footer": {
+    "text": "Designed & Developed by"
+  }
+}

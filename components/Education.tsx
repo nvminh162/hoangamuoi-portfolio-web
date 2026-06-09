@@ -1,8 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 export default function Education() {
+  const t = useTranslations("Education");
+
   const certificates = [
     {
       title: "IELTS Academic",
@@ -30,7 +33,7 @@ export default function Education() {
         transition={{ duration: 0.5 }}
       >
         <h2 className="text-2xl md:text-3xl lg:text-4xl text-brand-bg font-serif font-bold tracking-[0.2em] uppercase text-center">
-          EDUCATION
+          {t("title")}
         </h2>
       </motion.div>
 
@@ -48,10 +51,10 @@ export default function Education() {
           >
             <div>
               <h3 className="font-playfair text-2xl md:text-3xl font-bold text-primary tracking-wider uppercase inline-block border-b border-primary/20 pb-2 mb-2">
-                EDUCATION
+                {t("subtitle")}
               </h3>
               <p className="text-[10px] md:text-xs text-black/60 font-semibold uppercase tracking-widest mt-1">
-                Academic background
+                {t("desc")}
               </p>
             </div>
 
@@ -71,16 +74,16 @@ export default function Education() {
               
               <div className="space-y-2.5">
                 <h4 className="font-extrabold text-black uppercase text-lg md:text-xl leading-snug">
-                  Industrial University of Ho Chi Minh City
+                  {t("uni")}
                 </h4>
                 <p className="text-black/85 font-semibold text-sm md:text-base">
-                  English Linguistics
+                  {t("major")}
                 </p>
                 <p className="text-xs text-black/60 font-semibold">
-                  Location: Go Vap, HCMC, Vietnam
+                  {t("location")}
                 </p>
                 <div className="inline-block px-3 py-1 bg-primary/10 border border-primary/20 text-primary font-mono text-xs md:text-sm font-bold rounded-lg mt-1">
-                  2023 - Present
+                  {t("period")}
                 </div>
               </div>
             </motion.div>
@@ -96,10 +99,10 @@ export default function Education() {
           >
             <div>
               <h3 className="font-playfair text-2xl md:text-3xl font-bold text-primary tracking-wider uppercase inline-block border-b border-primary/20 pb-2 mb-2">
-                CERTIFICATES
+                {t("certTitle")}
               </h3>
               <p className="text-[10px] md:text-xs text-black/60 font-semibold uppercase tracking-widest mt-1">
-                Professional certifications
+                {t("certDesc")}
               </p>
             </div>
 
@@ -122,7 +125,7 @@ export default function Education() {
 
                   <div className="flex flex-col">
                     <span className="font-bold text-black/90 text-sm md:text-base leading-snug">
-                      {cert.title}
+                      {t("certs." + cert.title)}
                     </span>
                     {cert.issuer && (
                       <span className="text-xs text-black/55 font-semibold font-mono mt-0.5 uppercase tracking-wide">

@@ -1,13 +1,15 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 export default function Career() {
+  const t = useTranslations("Career");
   const goals = [
-    "Improve qualifications and soft skills to serve as a foundation for development in the teaching field.",
-    "Participate in specialized activities to learn about the field you pursue and improve your knowledge.",
-    "Graduated with Honors in English Language and achieved IELTS 8.5.",
-    "Teach classes at the center and continue to study for a master's degree to become a lecturer at a university specializing in languages"
+    t("goals.0"),
+    t("goals.1"),
+    t("goals.2"),
+    t("goals.3")
   ];
 
   return (
@@ -21,7 +23,7 @@ export default function Career() {
         transition={{ duration: 0.5 }}
       >
         <h2 className="text-2xl md:text-3xl lg:text-4xl text-brand-bg font-serif font-bold tracking-[0.2em] uppercase text-center">
-          GOALS
+          {t("title")}
         </h2>
       </motion.div>
 
@@ -30,10 +32,10 @@ export default function Career() {
         {/* Intro */}
         <div className="mb-12 flex flex-col items-center text-center">
           <h3 className="font-playfair text-2xl md:text-3xl font-bold text-primary tracking-wider uppercase inline-block border-b border-primary/20 pb-2 mb-2">
-            CAREER PATHWAY
+            {t("subtitle")}
           </h3>
           <p className="text-xs md:text-sm font-semibold text-black/75 max-w-xl leading-relaxed mt-2">
-            My structured milestones, professional targets, and developmental directions in education.
+            {t("desc")}
           </p>
         </div>
 
