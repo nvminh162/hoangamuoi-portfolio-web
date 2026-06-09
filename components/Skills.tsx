@@ -12,9 +12,9 @@ export default function Skills() {
   ];
 
   const languages = [
-    { name: "Vietnamese", desc: "Native Speaker", percentage: 100 },
-    { name: "English", desc: "Advanced", percentage: 80 },
-    { name: "Chinese", desc: "Conversational", percentage: 50 }
+    { name: "Vietnamese", desc: "Native Speaker", flag: "/skill/vietnam.png" },
+    { name: "English", desc: "Advanced", flag: "/skill/english.png" },
+    { name: "Chinese", desc: "Conversational", flag: "/skill/china.png" }
   ];
 
   return (
@@ -49,7 +49,7 @@ export default function Skills() {
               </h3>
               <p className="text-[10px] md:text-xs text-black/60 font-semibold uppercase tracking-widest mt-1">
                 Core competencies and capabilities
-              </p>
+            </p>
             </div>
 
             <div className="space-y-5 mt-4">
@@ -91,45 +91,18 @@ export default function Skills() {
               </p>
             </div>
 
-            {/* Circular dials container */}
+            {/* Flags container */}
             <div className="flex flex-col sm:flex-row lg:flex-col gap-6 mt-6">
               {languages.map((lang, idx) => {
-                const radius = 28;
-                const circumference = 2 * Math.PI * radius;
-                const offset = circumference - (lang.percentage / 100) * circumference;
-
                 return (
                   <div key={idx} className="flex items-center gap-4 bg-white/40 border border-primary/5 p-4 rounded-2xl shadow-sm hover:shadow transition-shadow flex-1">
-                    {/* SVG Circular Ring */}
-                    <div className="relative w-16 h-16 shrink-0 flex items-center justify-center">
-                      <svg viewBox="0 0 64 64" className="w-full h-full transform -rotate-90">
-                        {/* Background track circle */}
-                        <circle
-                          cx="32"
-                          cy="32"
-                          r={radius}
-                          className="stroke-primary/10 fill-none"
-                          strokeWidth="5"
-                        />
-                        {/* Foreground animated indicator circle */}
-                        <motion.circle
-                          cx="32"
-                          cy="32"
-                          r={radius}
-                          className="stroke-primary fill-none"
-                          strokeWidth="5"
-                          strokeDasharray={circumference}
-                          initial={{ strokeDashoffset: circumference }}
-                          whileInView={{ strokeDashoffset: offset }}
-                          viewport={{ once: true }}
-                          transition={{ duration: 1.2, delay: idx * 0.15, ease: "easeOut" }}
-                          strokeLinecap="round"
-                        />
-                      </svg>
-                      {/* Percent indicator */}
-                      <span className="absolute text-[10px] font-mono font-black text-primary">
-                        {lang.percentage}%
-                      </span>
+                    {/* Flag Image */}
+                    <div className="w-14 h-14 shrink-0 bg-white border border-primary/10 rounded-xl overflow-hidden shadow-sm flex items-center justify-center p-2">
+                      <img
+                        src={lang.flag}
+                        alt={lang.name}
+                        className="w-full h-full object-contain"
+                      />
                     </div>
 
                     <div className="flex flex-col">

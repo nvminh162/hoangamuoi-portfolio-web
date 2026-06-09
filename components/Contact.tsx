@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Phone, Mail, Facebook, Instagram, MessageCircle } from "lucide-react";
+
 
 export default function Contact() {
   const [socialType, setSocialType] = useState<string>("facebook");
@@ -56,35 +56,35 @@ export default function Contact() {
       label: "Phone",
       value: "+84 338673029",
       href: "tel:+84338673029",
-      icon: Phone,
+      image: "/contact/phone-call.png",
       color: "hover:bg-primary/10 hover:border-primary",
     },
     {
       label: "Email",
       value: "hoangsun1911@gmail.com",
       href: "mailto:hoangsun1911@gmail.com",
-      icon: Mail,
+      image: "/contact/gmail.png",
       color: "hover:bg-primary/10 hover:border-primary",
     },
     {
       label: "Facebook",
       value: "hoangsun1911",
       href: "https://facebook.com/hoangsun1911",
-      icon: Facebook,
+      image: "/contact/facebook.png",
       color: "hover:bg-blue-50 hover:border-blue-500 hover:text-blue-600",
     },
     {
       label: "Instagram",
       value: "hoangsun1911",
       href: "https://instagram.com/hoangsun1911",
-      icon: Instagram,
+      image: "/contact/instagram.png",
       color: "hover:bg-pink-50 hover:border-pink-500 hover:text-pink-600",
     },
     {
       label: "Zalo",
       value: "0338673029",
       href: "https://zalo.me/0338673029",
-      icon: MessageCircle,
+      image: "/contact/zalo.png",
       color: "hover:bg-sky-50 hover:border-sky-500 hover:text-sky-600",
     },
   ];
@@ -258,7 +258,6 @@ export default function Contact() {
 
             <div className="flex flex-col gap-3">
               {contactButtons.map((btn, idx) => {
-                const IconComp = btn.icon;
                 return (
                   <a
                     key={idx}
@@ -267,9 +266,13 @@ export default function Contact() {
                     rel="noopener noreferrer"
                     className={`flex items-center gap-3.5 p-3.5 bg-white/50 border border-primary/10 rounded-xl shadow-sm transition-all duration-300 ${btn.color} active:scale-[0.98]`}
                   >
-                    <span className="w-10 h-10 flex items-center justify-center bg-primary text-brand-bg rounded-full shrink-0">
-                      <IconComp className="w-5 h-5" />
-                    </span>
+                    <div className="w-10 h-10 flex items-center justify-center bg-white border border-primary/10 rounded-full overflow-hidden shrink-0 p-1.5 shadow-sm">
+                      <img
+                        src={btn.image}
+                        alt={btn.label}
+                        className="w-full h-full object-contain"
+                      />
+                    </div>
                     <div className="flex flex-col">
                       <span className="text-[9px] font-bold tracking-wider text-black/40 uppercase leading-none">
                         {btn.label}

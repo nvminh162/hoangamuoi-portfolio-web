@@ -1,21 +1,21 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { GraduationCap, Award } from "lucide-react";
 
 export default function Education() {
   const certificates = [
     {
-      title: "IELTS Academic - 8.5",
+      title: "IELTS Academic",
       issuer: "IDP Center",
+      logo: "/education/certificate/ielts.jpg",
+    },
+    {
+      title: "HSK3 Certificate",
+      logo: "/education/certificate/hsk.webp",
     },
     {
       title: "Microsoft Office Specialist (MOS)",
-      issuer: "Microsoft Certification",
-    },
-    {
-      title: "Vietnamese Teaching Methods training",
-      issuer: "Pedagogical Training Program",
+      logo: "/education/certificate/mos.png",
     },
   ];
 
@@ -60,17 +60,24 @@ export default function Education() {
               whileHover={{ y: -4 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
-              {/* Cap Icon Box */}
-              <div className="w-14 h-14 bg-primary text-brand-bg rounded-xl flex items-center justify-center shrink-0 shadow-sm">
-                <GraduationCap className="w-8 h-8" />
+              {/* University Logo Box */}
+              <div className="w-16 h-16 bg-white border border-primary/10 rounded-xl overflow-hidden shadow-sm flex items-center justify-center p-2 shrink-0">
+                <img
+                  src="/education/university/iuh.png"
+                  alt="Industrial University of Ho Chi Minh City"
+                  className="w-full h-full object-contain"
+                />
               </div>
               
               <div className="space-y-2.5">
                 <h4 className="font-extrabold text-black uppercase text-lg md:text-xl leading-snug">
-                  Industrial University of HCMC
+                  Industrial University of Ho Chi Minh City
                 </h4>
                 <p className="text-black/85 font-semibold text-sm md:text-base">
-                  Bachelor of English Linguistics
+                  English Linguistics
+                </p>
+                <p className="text-xs text-black/60 font-semibold">
+                  Location: Go Vap, HCMC, Vietnam
                 </p>
                 <div className="inline-block px-3 py-1 bg-primary/10 border border-primary/20 text-primary font-mono text-xs md:text-sm font-bold rounded-lg mt-1">
                   2023 - Present
@@ -104,18 +111,24 @@ export default function Education() {
                   whileHover={{ x: 6 }}
                   transition={{ type: "spring", stiffness: 300, damping: 20 }}
                 >
-                  {/* Award Icon Box */}
-                  <div className="w-11 h-11 bg-primary/10 text-primary rounded-xl flex items-center justify-center shrink-0">
-                    <Award className="w-6 h-6" />
+                  {/* Certificate Logo Box */}
+                  <div className="w-12 h-12 bg-white border border-primary/10 rounded-xl overflow-hidden shadow-sm flex items-center justify-center p-1.5 shrink-0">
+                    <img
+                      src={cert.logo}
+                      alt={cert.title}
+                      className="w-full h-full object-contain"
+                    />
                   </div>
 
                   <div className="flex flex-col">
                     <span className="font-bold text-black/90 text-sm md:text-base leading-snug">
                       {cert.title}
                     </span>
-                    <span className="text-xs text-black/55 font-semibold font-mono mt-0.5 uppercase tracking-wide">
-                      {cert.issuer}
-                    </span>
+                    {cert.issuer && (
+                      <span className="text-xs text-black/55 font-semibold font-mono mt-0.5 uppercase tracking-wide">
+                        {cert.issuer}
+                      </span>
+                    )}
                   </div>
                 </motion.div>
               ))}
