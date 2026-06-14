@@ -57,7 +57,7 @@ export default function Experience() {
       id: "tpp-academy",
       company: "TPP Academy",
       role: t("tpp-academy.role"),
-      period: "11/2024 – 05/2025",
+      period: "11/2024 -5/2026",
       location: t("tpp-academy.location"),
       logo: "/experiance/tpp.jpg",
       bullets: [
@@ -71,7 +71,7 @@ export default function Experience() {
     {
       id: "interpreter",
       role: t("interpreter.role"),
-      period: "03/2024 – Current",
+      period: "03/2025 – Current",
       logo: "/experiance/interpreter.png",
       bullets: [
         t("interpreter.bullets.0"),
