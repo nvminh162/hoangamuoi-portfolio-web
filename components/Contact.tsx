@@ -81,123 +81,123 @@ export default function Contact() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-            <div>
-              <h3 className="font-playfair text-2xl md:text-3xl font-bold text-primary tracking-wider uppercase border-b border-primary/20 pb-2 mb-2 inline-block">
-                {t("subtitle")}
-              </h3>
-              <p className="text-[10px] md:text-xs text-black/60 font-semibold uppercase tracking-widest mt-1">
-                {t("desc")}
-              </p>
-            </div>
+          <div className="flex flex-col items-center text-center">
+            <h3 className="font-playfair text-2xl md:text-3xl font-bold text-primary tracking-wider uppercase border-b border-primary/20 pb-2 mb-2 inline-block">
+              {t("subtitle")}
+            </h3>
+            <p className="text-[10px] md:text-xs text-black/60 font-semibold uppercase tracking-widest mt-1">
+              {t("desc")}
+            </p>
+          </div>
 
-            <form onSubmit={handleSubmit} className="flex flex-col gap-5 bg-transparent">
-              {/* Honeypot field (hidden from users) */}
+          <form onSubmit={handleSubmit} className="flex flex-col gap-5 bg-transparent">
+            {/* Honeypot field (hidden from users) */}
+            <input
+              type="text"
+              name="website"
+              value={honeypot}
+              onChange={(e) => setHoneypot(e.target.value)}
+              className="hidden"
+              autoComplete="off"
+            />
+
+            {/* Full Name */}
+            <div className="flex flex-col gap-1.5">
+              <label htmlFor="fullname" className="text-[10px] md:text-xs font-bold uppercase tracking-wider text-black/75">
+                {t("form.name")}
+              </label>
               <input
                 type="text"
-                name="website"
-                value={honeypot}
-                onChange={(e) => setHoneypot(e.target.value)}
-                className="hidden"
-                autoComplete="off"
+                id="fullname"
+                name="fullname"
+                required
+                className="w-full bg-white/70 border border-primary/20 focus:border-primary focus:ring-1 focus:ring-primary text-black font-semibold text-sm px-4 py-3 rounded-xl outline-none shadow-sm transition-all"
+                placeholder={t("form.name_placeholder")}
               />
+            </div>
 
-              {/* Full Name */}
-              <div className="flex flex-col gap-1.5">
-                <label htmlFor="fullname" className="text-[10px] md:text-xs font-bold uppercase tracking-wider text-black/75">
-                  {t("form.name")}
-                </label>
+            {/* Email Address */}
+            <div className="flex flex-col gap-1.5">
+              <label htmlFor="email" className="text-[10px] md:text-xs font-bold uppercase tracking-wider text-black/75">
+                {t("form.email")}
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                className="w-full bg-white/70 border border-primary/20 focus:border-primary focus:ring-1 focus:ring-primary text-black font-semibold text-sm px-4 py-3 rounded-xl outline-none shadow-sm transition-all"
+                placeholder={t("form.email_placeholder")}
+              />
+            </div>
+
+            {/* Message */}
+            <div className="flex flex-col gap-1.5">
+              <label htmlFor="message" className="text-[10px] md:text-xs font-bold uppercase tracking-wider text-black/75">
+                {t("form.message")}
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                required
+                rows={4}
+                className="w-full bg-white/70 border border-primary/20 focus:border-primary focus:ring-1 focus:ring-primary text-black font-semibold text-sm px-4 py-3 rounded-xl outline-none shadow-sm transition-all resize-none"
+                placeholder={t("form.message_placeholder")}
+              />
+            </div>
+
+            {/* Social Platform (Optional Input Group) */}
+            <div className="flex flex-col gap-1.5">
+              <label htmlFor="socialUsername" className="text-[10px] md:text-xs font-bold uppercase tracking-wider text-black/75">
+                {t("form.social")}
+              </label>
+              <div className="flex rounded-xl overflow-hidden border border-primary/20 bg-white/70 focus-within:border-primary focus-within:ring-1 focus-within:ring-primary shadow-sm transition-all">
+                <select
+                  value={socialType}
+                  onChange={(e) => setSocialType(e.target.value)}
+                  className="appearance-none bg-primary/5 text-primary font-bold text-xs uppercase px-4 py-3 border-r border-primary/20 outline-none cursor-pointer hover:bg-primary/10 transition-colors text-center"
+                >
+                  <option value="facebook" className="bg-brand-bg text-black">Facebook</option>
+                  <option value="instagram" className="bg-brand-bg text-black">Instagram</option>
+                  <option value="zalo" className="bg-brand-bg text-black">Zalo</option>
+                </select>
                 <input
                   type="text"
-                  id="fullname"
-                  name="fullname"
-                  required
-                  className="w-full bg-white/70 border border-primary/20 focus:border-primary focus:ring-1 focus:ring-primary text-black font-semibold text-sm px-4 py-3 rounded-xl outline-none shadow-sm transition-all"
-                  placeholder={t("form.name_placeholder")}
+                  id="socialUsername"
+                  name="socialUsername"
+                  value={socialUsername}
+                  onChange={(e) => setSocialUsername(e.target.value)}
+                  className="flex-1 bg-transparent text-black font-semibold text-sm px-4 py-3 outline-none"
+                  placeholder={
+                    socialType === "zalo"
+                      ? t("form.social_placeholder_zalo")
+                      : t("form.social_placeholder_other")
+                  }
                 />
               </div>
+            </div>
 
-              {/* Email Address */}
-              <div className="flex flex-col gap-1.5">
-                <label htmlFor="email" className="text-[10px] md:text-xs font-bold uppercase tracking-wider text-black/75">
-                  {t("form.email")}
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  required
-                  className="w-full bg-white/70 border border-primary/20 focus:border-primary focus:ring-1 focus:ring-primary text-black font-semibold text-sm px-4 py-3 rounded-xl outline-none shadow-sm transition-all"
-                  placeholder={t("form.email_placeholder")}
-                />
-              </div>
+            {/* Submit Button */}
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="w-full py-4 bg-primary text-brand-bg hover:opacity-90 active:scale-[0.99] transition-all font-bold text-xs md:text-sm tracking-widest uppercase rounded-xl shadow-md disabled:opacity-50 mt-1"
+            >
+              {isSubmitting ? t("form.submitting") : t("form.submit")}
+            </button>
 
-              {/* Social Platform (Optional Input Group) */}
-              <div className="flex flex-col gap-1.5">
-                <label htmlFor="socialUsername" className="text-[10px] md:text-xs font-bold uppercase tracking-wider text-black/75">
-                  {t("form.social")}
-                </label>
-                <div className="flex rounded-xl overflow-hidden border border-primary/20 bg-white/70 focus-within:border-primary focus-within:ring-1 focus-within:ring-primary shadow-sm transition-all">
-                  <select
-                    value={socialType}
-                    onChange={(e) => setSocialType(e.target.value)}
-                    className="appearance-none bg-primary/5 text-primary font-bold text-xs uppercase px-4 py-3 border-r border-primary/20 outline-none cursor-pointer hover:bg-primary/10 transition-colors text-center"
-                  >
-                    <option value="facebook" className="bg-brand-bg text-black">Facebook</option>
-                    <option value="instagram" className="bg-brand-bg text-black">Instagram</option>
-                    <option value="zalo" className="bg-brand-bg text-black">Zalo</option>
-                  </select>
-                  <input
-                    type="text"
-                    id="socialUsername"
-                    name="socialUsername"
-                    value={socialUsername}
-                    onChange={(e) => setSocialUsername(e.target.value)}
-                    className="flex-1 bg-transparent text-black font-semibold text-sm px-4 py-3 outline-none"
-                    placeholder={
-                      socialType === "zalo"
-                        ? t("form.social_placeholder_zalo")
-                        : t("form.social_placeholder_other")
-                    }
-                  />
-                </div>
-              </div>
-
-              {/* Message */}
-              <div className="flex flex-col gap-1.5">
-                <label htmlFor="message" className="text-[10px] md:text-xs font-bold uppercase tracking-wider text-black/75">
-                  {t("form.message")}
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  required
-                  rows={4}
-                  className="w-full bg-white/70 border border-primary/20 focus:border-primary focus:ring-1 focus:ring-primary text-black font-semibold text-sm px-4 py-3 rounded-xl outline-none shadow-sm transition-all resize-none"
-                  placeholder={t("form.message_placeholder")}
-                />
-              </div>
-
-              {/* Submit Button */}
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full py-4 bg-primary text-brand-bg hover:opacity-90 active:scale-[0.99] transition-all font-bold text-xs md:text-sm tracking-widest uppercase rounded-xl shadow-md disabled:opacity-50 mt-1"
+            {/* Status Feedback */}
+            {status && (
+              <div
+                className={`p-3 rounded-xl text-xs font-bold tracking-wide text-center border ${status.type === "success"
+                  ? "bg-green-50 text-green-800 border-green-200"
+                  : "bg-red-50 text-red-800 border-red-200"
+                  }`}
               >
-                {isSubmitting ? t("form.submitting") : t("form.submit")}
-              </button>
-
-              {/* Status Feedback */}
-              {status && (
-                <div
-                  className={`p-3 rounded-xl text-xs font-bold tracking-wide text-center border ${status.type === "success"
-                    ? "bg-green-50 text-green-800 border-green-200"
-                    : "bg-red-50 text-red-800 border-red-200"
-                    }`}
-                >
-                  {status.message}
-                </div>
-              )}
-            </form>
+                {status.message}
+              </div>
+            )}
+          </form>
         </motion.div>
       </div>
 
