@@ -143,7 +143,10 @@
   },
   "ThankYou": {
     "title": "CẢM ƠN",
-    "tag": "PORTFOLIO"
+    "tag": "PORTFOLIO",
+    "phone": "Điện thoại",
+    "gmail": "Gmail",
+    "socials": "Mạng xã hội"
   },
   "Footer": {
     "text": "Thiết kế & Phát triển bởi"

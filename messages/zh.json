@@ -143,7 +143,10 @@
   },
   "ThankYou": {
     "title": "非常感谢",
-    "tag": "PORTFOLIO"
+    "tag": "PORTFOLIO",
+    "phone": "电话",
+    "gmail": "邮箱",
+    "socials": "社交媒体"
   },
   "Footer": {
     "text": "设计与开发："

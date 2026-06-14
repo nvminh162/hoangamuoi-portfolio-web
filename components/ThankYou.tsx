@@ -63,6 +63,131 @@ export default function ThankYou() {
               2026
             </motion.span>
           </div>
+
+          {/* Direct Contacts Row */}
+          <motion.div 
+            className="flex flex-wrap justify-center gap-4 mt-16 max-w-4xl px-4"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            {/* Phone Button */}
+            <a
+              href="tel:+84338673029"
+              className="flex items-center gap-2.5 px-4 py-2.5 bg-white/60 border border-primary/10 rounded-full shadow-sm hover:shadow-md hover:bg-white/80 active:scale-95 transition-all duration-300"
+            >
+              <div className="w-6 h-6 flex items-center justify-center bg-white border border-primary/5 rounded-full overflow-hidden shrink-0 p-0.5 shadow-sm">
+                <img
+                  src="/contact/phone-call.png"
+                  alt="Phone"
+                  className="w-full h-full object-contain"
+                />
+              </div>
+              <div className="flex flex-col text-left leading-none">
+                <span className="text-[7.5px] font-bold tracking-wider text-black/40 uppercase">
+                  {t("phone")}
+                </span>
+                <span className="text-[10.5px] font-semibold text-black/85 mt-0.5 font-mono">
+                  +84 338673029
+                </span>
+              </div>
+            </a>
+
+            {/* Gmail Button */}
+            <a
+              href="mailto:hoangsun1911@gmail.com"
+              className="flex items-center gap-2.5 px-4 py-2.5 bg-white/60 border border-primary/10 rounded-full shadow-sm hover:shadow-md hover:bg-white/80 active:scale-95 transition-all duration-300"
+            >
+              <div className="w-6 h-6 flex items-center justify-center bg-white border border-primary/5 rounded-full overflow-hidden shrink-0 p-0.5 shadow-sm">
+                <img
+                  src="/contact/gmail.png"
+                  alt="Gmail"
+                  className="w-full h-full object-contain"
+                />
+              </div>
+              <div className="flex flex-col text-left leading-none">
+                <span className="text-[7.5px] font-bold tracking-wider text-black/40 uppercase">
+                  {t("gmail")}
+                </span>
+                <span className="text-[10.5px] font-semibold text-black/85 mt-0.5 font-mono">
+                  hoangsun1911@gmail.com
+                </span>
+              </div>
+            </a>
+
+            {/* Facebook Button */}
+            <a
+              href="https://facebook.com/hoang.muoi.94402343"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2.5 px-4 py-2.5 bg-white/60 border border-primary/10 rounded-full shadow-sm hover:shadow-md hover:bg-white/80 active:scale-95 transition-all duration-300"
+            >
+              <div className="w-6 h-6 flex items-center justify-center bg-white border border-primary/5 rounded-full overflow-hidden shrink-0 p-0.5 shadow-sm">
+                <img
+                  src="/contact/facebook.png"
+                  alt="Facebook"
+                  className="w-full h-full object-contain"
+                />
+              </div>
+              <div className="flex flex-col text-left leading-none">
+                <span className="text-[7.5px] font-bold tracking-wider text-black/40 uppercase">
+                  Facebook
+                </span>
+                <span className="text-[10.5px] font-semibold text-black/85 mt-0.5">
+                  Muội Hoàng
+                </span>
+              </div>
+            </a>
+
+            {/* Instagram Button */}
+            <a
+              href="https://instagram.com/amuoi_1119"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2.5 px-4 py-2.5 bg-white/60 border border-primary/10 rounded-full shadow-sm hover:shadow-md hover:bg-white/80 active:scale-95 transition-all duration-300"
+            >
+              <div className="w-6 h-6 flex items-center justify-center bg-white border border-primary/5 rounded-full overflow-hidden shrink-0 p-0.5 shadow-sm">
+                <img
+                  src="/contact/instagram.png"
+                  alt="Instagram"
+                  className="w-full h-full object-contain"
+                />
+              </div>
+              <div className="flex flex-col text-left leading-none">
+                <span className="text-[7.5px] font-bold tracking-wider text-black/40 uppercase">
+                  Instagram
+                </span>
+                <span className="text-[10.5px] font-semibold text-black/85 mt-0.5">
+                  amuoi_1119
+                </span>
+              </div>
+            </a>
+
+            {/* Zalo Button */}
+            <a
+              href="https://zalo.me/0338673029"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2.5 px-4 py-2.5 bg-white/60 border border-primary/10 rounded-full shadow-sm hover:shadow-md hover:bg-white/80 active:scale-95 transition-all duration-300"
+            >
+              <div className="w-6 h-6 flex items-center justify-center bg-white border border-primary/5 rounded-full overflow-hidden shrink-0 p-0.5 shadow-sm">
+                <img
+                  src="/contact/zalo.png"
+                  alt="Zalo"
+                  className="w-full h-full object-contain"
+                />
+              </div>
+              <div className="flex flex-col text-left leading-none">
+                <span className="text-[7.5px] font-bold tracking-wider text-black/40 uppercase">
+                  Zalo
+                </span>
+                <span className="text-[10.5px] font-semibold text-black/85 mt-0.5">
+                  0338673029
+                </span>
+              </div>
+            </a>
+          </motion.div>
         </div>
       </div>
     </section>

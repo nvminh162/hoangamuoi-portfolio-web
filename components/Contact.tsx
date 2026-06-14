@@ -52,43 +52,7 @@ export default function Contact() {
     }
   };
 
-  const contactButtons = [
-    {
-      label: "Phone",
-      value: "+84 338673029",
-      href: "tel:+84338673029",
-      image: "/contact/phone-call.png",
-      color: "hover:bg-primary/10 hover:border-primary",
-    },
-    {
-      label: "Email",
-      value: "hoangsun1911@gmail.com",
-      href: "mailto:hoangsun1911@gmail.com",
-      image: "/contact/gmail.png",
-      color: "hover:bg-primary/10 hover:border-primary",
-    },
-    {
-      label: "Facebook",
-      value: "Muội Hoàng",
-      href: "https://facebook.com/hoang.muoi.94402343",
-      image: "/contact/facebook.png",
-      color: "hover:bg-blue-50 hover:border-blue-500 hover:text-blue-600",
-    },
-    {
-      label: "Instagram",
-      value: "amuoi_1119",
-      href: "https://instagram.com/amuoi_1119",
-      image: "/contact/instagram.png",
-      color: "hover:bg-pink-50 hover:border-pink-500 hover:text-pink-600",
-    },
-    {
-      label: "Zalo",
-      value: "0338673029",
-      href: "https://zalo.me/0338673029",
-      image: "/contact/zalo.png",
-      color: "hover:bg-sky-50 hover:border-sky-500 hover:text-sky-600",
-    },
-  ];
+
 
   return (
     <section
@@ -108,18 +72,15 @@ export default function Contact() {
         </h2>
       </motion.div>
 
-      {/* Grid Layout Container (Centered) */}
-      <div className="flex-1 w-full max-w-6xl mx-auto px-8 md:px-16 py-12 flex items-center justify-center text-black">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start w-full">
-
-          {/* Left Column: Form */}
-          <motion.div
-            className="lg:col-span-7 flex flex-col gap-6"
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
+      {/* Form Container (Centered) */}
+      <div className="flex-1 w-full max-w-xl mx-auto px-8 py-12 flex items-center justify-center text-black">
+        <motion.div
+          className="w-full flex flex-col gap-6"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
             <div>
               <h3 className="font-playfair text-2xl md:text-3xl font-bold text-primary tracking-wider uppercase border-b border-primary/20 pb-2 mb-2 inline-block">
                 {t("subtitle")}
@@ -237,57 +198,7 @@ export default function Contact() {
                 </div>
               )}
             </form>
-          </motion.div>
-
-          {/* Right Column: Contact Links */}
-          <motion.div
-            className="lg:col-span-5 flex flex-col gap-6"
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-          >
-            <div>
-              <h3 className="font-playfair text-2xl md:text-3xl font-bold text-primary tracking-wider uppercase border-b border-primary/20 pb-2 mb-2 inline-block">
-                {t("directTitle")}
-              </h3>
-              <p className="text-[10px] md:text-xs text-black/60 font-semibold uppercase tracking-widest mt-1">
-                {t("directDesc")}
-              </p>
-            </div>
-
-            <div className="flex flex-col gap-3">
-              {contactButtons.map((btn, idx) => {
-                return (
-                  <a
-                    key={idx}
-                    href={btn.href}
-                    target={btn.label !== "Phone" && btn.label !== "Email" ? "_blank" : undefined}
-                    rel="noopener noreferrer"
-                    className={`flex items-center gap-3.5 p-3.5 bg-white/50 border border-primary/10 rounded-xl shadow-sm transition-all duration-300 ${btn.color} active:scale-[0.98]`}
-                  >
-                    <div className="w-10 h-10 flex items-center justify-center bg-white border border-primary/10 rounded-full overflow-hidden shrink-0 p-1.5 shadow-sm">
-                      <img
-                        src={btn.image}
-                        alt={btn.label}
-                        className="w-full h-full object-contain"
-                      />
-                    </div>
-                    <div className="flex flex-col">
-                      <span className="text-[9px] font-bold tracking-wider text-black/40 uppercase leading-none">
-                        {btn.label}
-                      </span>
-                      <span className="text-sm md:text-base font-bold text-black/85 mt-1">
-                        {btn.value}
-                      </span>
-                    </div>
-                  </a>
-                );
-              })}
-            </div>
-          </motion.div>
-
-        </div>
+        </motion.div>
       </div>
 
       {/* Spacer to push content to center */}

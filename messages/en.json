@@ -143,7 +143,10 @@
   },
   "ThankYou": {
     "title": "THANK YOU",
-    "tag": "PORTFOLIO"
+    "tag": "PORTFOLIO",
+    "phone": "Phone",
+    "gmail": "Gmail",
+    "socials": "Socials"
   },
   "Footer": {
     "text": "Designed & Developed by"
