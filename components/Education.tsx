@@ -1,10 +1,30 @@
 "use client";
 
-import { motion } from "framer-motion";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { useTranslations } from "next-intl";
+import Lightbox from "./Lightbox";
 
 export default function Education() {
   const t = useTranslations("Education");
+
+  const [lightboxState, setLightboxState] = useState<{
+    isOpen: boolean;
+    images: { src: string; label: string }[];
+    initialIndex: number;
+  }>({
+    isOpen: false,
+    images: [],
+    initialIndex: 0,
+  });
+
+  const openLightbox = (images: { src: string; label: string }[], index: number) => {
+    setLightboxState({
+      isOpen: true,
+      images,
+      initialIndex: index,
+    });
+  };
 
   const certificates = [
     {
@@ -20,6 +40,17 @@ export default function Education() {
       title: "Microsoft Office Specialist (MOS)",
       logo: "/education/certificate/mos.png",
     },
+  ];
+
+  const educationImages = [
+    {
+      src: "/education/university/iuh.png",
+      label: t("uni"),
+    },
+    ...certificates.map((cert) => ({
+      src: cert.logo,
+      label: `${t("certs." + cert.title)}${cert.issuer ? ` (${cert.issuer})` : ""}`,
+    })),
   ];
 
   return (
@@ -59,9 +90,10 @@ export default function Education() {
             </div>
 
             <motion.div 
-              className="bg-white/50 border border-primary/15 p-5 rounded-2xl shadow-sm hover:shadow-md transition-shadow relative overflow-hidden flex flex-row gap-5 items-start"
+              className="bg-white/50 border border-primary/15 p-5 rounded-2xl shadow-sm hover:shadow-md transition-shadow relative overflow-hidden flex flex-row gap-5 items-start cursor-pointer"
               whileHover={{ y: -4 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              onClick={() => openLightbox(educationImages, 0)}
             >
               {/* University Logo Box */}
               <div className="w-12 h-12 bg-white border border-primary/10 rounded-xl overflow-hidden shadow-sm flex items-center justify-center p-1.5 shrink-0">
@@ -110,9 +142,10 @@ export default function Education() {
               {certificates.map((cert, idx) => (
                 <motion.div
                   key={idx}
-                  className="bg-white/50 border border-primary/10 p-5 rounded-2xl shadow-sm hover:shadow-md transition-shadow flex items-center gap-5"
+                  className="bg-white/50 border border-primary/10 p-5 rounded-2xl shadow-sm hover:shadow-md transition-shadow flex items-center gap-5 cursor-pointer"
                   whileHover={{ x: 6 }}
                   transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                  onClick={() => openLightbox(educationImages, idx + 1)}
                 >
                   {/* Certificate Logo Box */}
                   <div className="w-12 h-12 bg-white border border-primary/10 rounded-xl overflow-hidden shadow-sm flex items-center justify-center p-1.5 shrink-0">
@@ -143,6 +176,16 @@ export default function Education() {
 
       {/* Spacer to push content to center */}
       <div className="h-4 shrink-0"></div>
+
+      <AnimatePresence>
+        {lightboxState.isOpen && (
+          <Lightbox
+            images={lightboxState.images}
+            initialIndex={lightboxState.initialIndex}
+            onClose={() => setLightboxState((prev) => ({ ...prev, isOpen: false }))}
+          />
+        )}
+      </AnimatePresence>
     </section>
   );
 }

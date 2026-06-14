@@ -1,10 +1,30 @@
 "use client";
 
-import { motion } from "framer-motion";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { useTranslations } from "next-intl";
+import Lightbox from "./Lightbox";
 
 export default function About() {
   const t = useTranslations("About");
+
+  const [lightboxState, setLightboxState] = useState<{
+    isOpen: boolean;
+    images: { src: string; label: string }[];
+    initialIndex: number;
+  }>({
+    isOpen: false,
+    images: [],
+    initialIndex: 0,
+  });
+
+  const openLightbox = (images: { src: string; label: string }[], index: number) => {
+    setLightboxState({
+      isOpen: true,
+      images,
+      initialIndex: index,
+    });
+  };
 
   return (
     <section id="about" className="w-full min-h-screen bg-brand-bg flex flex-col justify-between">
@@ -36,7 +56,8 @@ export default function About() {
             <img
               src="/hoangamuoi.png"
               alt="HOANG A MUOI"
-              className="w-full max-w-[280px] md:max-w-full aspect-[3/4] object-cover border-2 border-primary rounded-none shadow-md"
+              className="w-full max-w-[280px] md:max-w-full aspect-[3/4] object-cover border-2 border-primary rounded-none shadow-md cursor-pointer hover:opacity-95 transition-opacity"
+              onClick={() => openLightbox([{ src: "/hoangamuoi.png", label: "HOANG A MUOI" }], 0)}
             />
           </motion.div>
 
@@ -70,6 +91,16 @@ export default function About() {
       
       {/* Spacer to push content to center */}
       <div className="h-4 shrink-0"></div>
+
+      <AnimatePresence>
+        {lightboxState.isOpen && (
+          <Lightbox
+            images={lightboxState.images}
+            initialIndex={lightboxState.initialIndex}
+            onClose={() => setLightboxState((prev) => ({ ...prev, isOpen: false }))}
+          />
+        )}
+      </AnimatePresence>
     </section>
   );
 }

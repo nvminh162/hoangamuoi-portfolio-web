@@ -1,8 +1,10 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useTranslations } from "next-intl";
+import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import Lightbox from "./Lightbox";
 
 interface SubImage {
   path: string;
@@ -27,9 +29,10 @@ interface MediaFrameProps {
   alt: string;
   type: "portrait" | "main";
   label: string;
+  onClick?: () => void;
 }
 
-function MediaFrame({ src, alt, type, label }: MediaFrameProps) {
+function MediaFrame({ src, alt, type, label, onClick }: MediaFrameProps) {
   const [hasError, setHasError] = useState(false);
   const [loading, setLoading] = useState(true);
 
@@ -57,7 +60,10 @@ function MediaFrame({ src, alt, type, label }: MediaFrameProps) {
   if (type === "main") {
     return (
       <div className="w-full h-full flex flex-col items-center select-none">
-        <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-sm hover:shadow-md border border-primary/10 bg-white/40 backdrop-blur-sm group transition-all duration-300">
+        <div 
+          onClick={onClick}
+          className={`relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-sm hover:shadow-md border border-primary/10 bg-white/40 backdrop-blur-sm group transition-all duration-300 ${onClick ? "cursor-pointer" : ""}`}
+        >
           {isPlaceholder ? (
             <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-3 border-2 border-dashed border-primary/15 rounded-2xl bg-primary/[0.01]">
               <span className="text-primary text-xl mb-1.5">🖼️</span>
@@ -91,7 +97,10 @@ function MediaFrame({ src, alt, type, label }: MediaFrameProps) {
   return (
     <div className="w-full h-full flex flex-col items-center select-none">
       {/* Polaroid Card container */}
-      <div className="w-full bg-white border border-primary/10 p-2.5 pb-6 rounded-sm shadow-md hover:shadow-xl hover:scale-105 hover:rotate-0 transition-all duration-300 flex flex-col gap-3 bg-gradient-to-b from-white to-neutral-50/50">
+      <div 
+        onClick={onClick}
+        className={`w-full bg-white border border-primary/10 p-2.5 pb-6 rounded-sm shadow-md hover:shadow-xl hover:scale-105 hover:rotate-0 transition-all duration-300 flex flex-col gap-3 bg-gradient-to-b from-white to-neutral-50/50 ${onClick ? "cursor-pointer" : ""}`}
+      >
         
         {/* Photo area */}
         <div className="relative w-full aspect-[3/4] overflow-hidden bg-neutral-100 border border-black/5 shadow-inner">
@@ -132,6 +141,37 @@ function MediaFrame({ src, alt, type, label }: MediaFrameProps) {
 
 export default function Experience() {
   const t = useTranslations("Experience");
+
+  const [lightboxState, setLightboxState] = useState<{
+    isOpen: boolean;
+    images: { src: string; label: string }[];
+    initialIndex: number;
+  }>({
+    isOpen: false,
+    images: [],
+    initialIndex: 0,
+  });
+
+  const openLightbox = (images: { src: string; label: string }[], index: number) => {
+    setLightboxState({
+      isOpen: true,
+      images,
+      initialIndex: index,
+    });
+  };
+
+  const getExperienceImages = (exp: ExperienceItem) => {
+    const list: { src: string; label: string }[] = [];
+    if (exp.mainImage) {
+      list.push({ src: exp.mainImage, label: exp.mainImageLabel });
+    }
+    if (exp.subImages && exp.subImages.length > 0) {
+      exp.subImages.forEach((img) => {
+        list.push({ src: img.path, label: img.label });
+      });
+    }
+    return list;
+  };
 
   const experiences: ExperienceItem[] = [
     {
@@ -321,6 +361,10 @@ export default function Experience() {
                         alt={exp.company || exp.role}
                         type="main"
                         label={exp.mainImageLabel}
+                        onClick={() => {
+                          const imgs = getExperienceImages(exp);
+                          openLightbox(imgs, 0);
+                        }}
                       />
                     </div>
                   )}
@@ -348,6 +392,11 @@ export default function Experience() {
                             alt={`${exp.company || exp.role} gallery 1`}
                             type="portrait"
                             label={exp.subImages[0].label}
+                            onClick={() => {
+                              const imgs = getExperienceImages(exp);
+                              const idx = exp.mainImage ? 1 : 0;
+                              openLightbox(imgs, idx);
+                            }}
                           />
                         </div>
                         {/* Column 2: Stack of 2 portrait cards (Col span 4) */}
@@ -358,6 +407,11 @@ export default function Experience() {
                               alt={`${exp.company || exp.role} gallery 2`}
                               type="portrait"
                               label={exp.subImages[1].label}
+                              onClick={() => {
+                                const imgs = getExperienceImages(exp);
+                                const idx = exp.mainImage ? 2 : 1;
+                                openLightbox(imgs, idx);
+                              }}
                             />
                           </div>
                           <div className="rotate-[-1deg] translate-y-2 hover:rotate-0 transition-transform duration-300">
@@ -366,6 +420,11 @@ export default function Experience() {
                               alt={`${exp.company || exp.role} gallery 3`}
                               type="portrait"
                               label={exp.subImages[2].label}
+                              onClick={() => {
+                                const imgs = getExperienceImages(exp);
+                                const idx = exp.mainImage ? 3 : 2;
+                                openLightbox(imgs, idx);
+                              }}
                             />
                           </div>
                         </div>
@@ -376,6 +435,11 @@ export default function Experience() {
                             alt={`${exp.company || exp.role} gallery 4`}
                             type="portrait"
                             label={exp.subImages[3].label}
+                            onClick={() => {
+                              const imgs = getExperienceImages(exp);
+                              const idx = exp.mainImage ? 4 : 3;
+                              openLightbox(imgs, idx);
+                            }}
                           />
                         </div>
                       </div>
@@ -390,6 +454,11 @@ export default function Experience() {
                               alt={`${exp.company || exp.role} gallery 1`}
                               type="portrait"
                               label={exp.subImages[0].label}
+                              onClick={() => {
+                                const imgs = getExperienceImages(exp);
+                                const idx = exp.mainImage ? 1 : 0;
+                                openLightbox(imgs, idx);
+                              }}
                             />
                           </div>
                           <div className="rotate-[2.5deg] -translate-y-2 hover:rotate-0 transition-transform duration-300">
@@ -398,6 +467,11 @@ export default function Experience() {
                               alt={`${exp.company || exp.role} gallery 2`}
                               type="portrait"
                               label={exp.subImages[1].label}
+                              onClick={() => {
+                                const imgs = getExperienceImages(exp);
+                                const idx = exp.mainImage ? 2 : 1;
+                                openLightbox(imgs, idx);
+                              }}
                             />
                           </div>
                           <div className="rotate-[-2deg] translate-y-1 hover:rotate-0 transition-transform duration-300">
@@ -406,6 +480,11 @@ export default function Experience() {
                               alt={`${exp.company || exp.role} gallery 3`}
                               type="portrait"
                               label={exp.subImages[2].label}
+                              onClick={() => {
+                                const imgs = getExperienceImages(exp);
+                                const idx = exp.mainImage ? 3 : 2;
+                                openLightbox(imgs, idx);
+                              }}
                             />
                           </div>
                           <div className="rotate-[1.5deg] -translate-y-1 hover:rotate-0 transition-transform duration-300">
@@ -414,6 +493,11 @@ export default function Experience() {
                               alt={`${exp.company || exp.role} gallery 4`}
                               type="portrait"
                               label={exp.subImages[3].label}
+                              onClick={() => {
+                                const imgs = getExperienceImages(exp);
+                                const idx = exp.mainImage ? 4 : 3;
+                                openLightbox(imgs, idx);
+                              }}
                             />
                           </div>
                         </div>
@@ -432,6 +516,11 @@ export default function Experience() {
                                   alt={`${exp.company || exp.role} gallery ${sIdx + 5}`}
                                   type="portrait"
                                   label={subImg.label}
+                                  onClick={() => {
+                                    const imgs = getExperienceImages(exp);
+                                    const idx = exp.mainImage ? sIdx + 5 : sIdx + 4;
+                                    openLightbox(imgs, idx);
+                                  }}
                                 />
                               </div>
                             );
@@ -449,6 +538,16 @@ export default function Experience() {
 
       {/* Spacer to push content to center */}
       <div className="h-4 shrink-0"></div>
+
+      <AnimatePresence>
+        {lightboxState.isOpen && (
+          <Lightbox
+            images={lightboxState.images}
+            initialIndex={lightboxState.initialIndex}
+            onClose={() => setLightboxState((prev) => ({ ...prev, isOpen: false }))}
+          />
+        )}
+      </AnimatePresence>
     </section>
   );
 }
