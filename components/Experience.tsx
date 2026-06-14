@@ -99,7 +99,7 @@ function MediaFrame({ src, alt, type, label, onClick }: MediaFrameProps) {
       {/* Polaroid Card container */}
       <div 
         onClick={onClick}
-        className={`w-full bg-white border border-primary/10 p-2.5 pb-6 rounded-sm shadow-md hover:shadow-xl hover:scale-105 hover:rotate-0 transition-all duration-300 flex flex-col gap-3 bg-gradient-to-b from-white to-neutral-50/50 ${onClick ? "cursor-pointer" : ""}`}
+        className={`w-full bg-white border border-primary/10 p-1.5 rounded-sm shadow-md hover:shadow-xl hover:scale-105 hover:rotate-0 transition-all duration-300 flex flex-col bg-gradient-to-b from-white to-neutral-50/50 ${onClick ? "cursor-pointer" : ""}`}
       >
         
         {/* Photo area */}
@@ -127,11 +127,6 @@ function MediaFrame({ src, alt, type, label, onClick }: MediaFrameProps) {
               />
             </>
           )}
-        </div>
-
-        {/* Polaroid caption area */}
-        <div className="text-center font-playfair font-black text-[9px] md:text-[10px] text-primary/80 tracking-wide uppercase leading-tight select-text">
-          {label}
         </div>
 
       </div>
@@ -343,14 +338,6 @@ export default function Experience() {
                       </div>
                     </div>
 
-                    {/* Paragraphs (joined bullets) */}
-                    <div className="space-y-4 mt-2 text-xs md:text-sm font-semibold text-black/80 leading-relaxed max-w-3xl text-justify">
-                      {exp.bullets.map((bullet, bIdx) => (
-                        <p key={bIdx}>
-                          {bullet}
-                        </p>
-                      ))}
-                    </div>
                   </div>
 
                   {/* Right Column: Main Image Frame */}
