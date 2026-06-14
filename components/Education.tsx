@@ -73,7 +73,7 @@ export default function Education() {
               </div>
               
               <div className="flex-1 flex flex-col">
-                <h4 className="font-extrabold text-black uppercase text-sm md:text-base leading-snug">
+                <h4 className="font-bold text-black/90 text-sm md:text-base leading-snug">
                   {t("uni")}
                 </h4>
                 <p className="text-black/85 font-semibold text-xs md:text-sm mt-0.5">

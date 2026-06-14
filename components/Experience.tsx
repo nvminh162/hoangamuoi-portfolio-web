@@ -51,6 +51,8 @@ export default function Experience() {
       logo: "/experiance/bambi.jpg",
       bullets: [
         t("bambi.bullets.0"),
+        t("bambi.bullets.1"),
+        t("bambi.bullets.2"),
       ],
     },
     {
