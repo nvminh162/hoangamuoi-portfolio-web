@@ -51,45 +51,80 @@ function MediaFrame({ src, alt, type, label }: MediaFrameProps) {
     };
   }, [src]);
 
-  // Define styling classes based on type
-  let aspectClass = "aspect-square";
-  if (type === "portrait") {
-    aspectClass = "aspect-[3/4]";
-  } else if (type === "main") {
-    aspectClass = "aspect-[4/3]";
-  }
-
   // Handle cases where src is empty or error
   const isPlaceholder = !src || hasError;
 
+  if (type === "main") {
+    return (
+      <div className="w-full h-full flex flex-col items-center select-none">
+        <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-sm hover:shadow-md border border-primary/10 bg-white/40 backdrop-blur-sm group transition-all duration-300">
+          {isPlaceholder ? (
+            <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-3 border-2 border-dashed border-primary/15 rounded-2xl bg-primary/[0.01]">
+              <span className="text-primary text-xl mb-1.5">🖼️</span>
+              <span className="text-[10px] font-bold text-primary/80 uppercase tracking-wider px-1 leading-snug">{label}</span>
+              <span className="text-[7.5px] font-mono text-black/50 mt-3 break-all px-1.5 bg-black/5 rounded py-0.5 max-w-[95%] leading-normal select-text">
+                {src || `[Placeholder Path]`}
+              </span>
+            </div>
+          ) : (
+            <>
+              {loading && (
+                <div className="absolute inset-0 bg-[#EAE5D9]/50 flex items-center justify-center">
+                  <span className="text-[9px] text-primary/50 animate-pulse">Loading...</span>
+                </div>
+              )}
+              <img
+                src={src}
+                alt={alt}
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                onLoad={() => setLoading(false)}
+                onError={() => setHasError(true)}
+              />
+            </>
+          )}
+        </div>
+      </div>
+    );
+  }
+
+  // Polaroid Scrapbook Style for sub-gallery items
   return (
     <div className="w-full h-full flex flex-col items-center select-none">
-      {/* Normal Portrait or Main Card */}
-      <div className={`relative w-full ${aspectClass} rounded-2xl overflow-hidden shadow-sm hover:shadow-md border border-primary/10 bg-white/40 backdrop-blur-sm group transition-all duration-300`}>
-        {isPlaceholder ? (
-          <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-3 border-2 border-dashed border-primary/15 rounded-2xl bg-primary/[0.01]">
-            <span className="text-primary text-xl mb-1.5">{type === "main" ? "🖼️" : "📷"}</span>
-            <span className="text-[10px] font-bold text-primary/80 uppercase tracking-wider px-1 leading-snug">{label}</span>
-            <span className="text-[7.5px] font-mono text-black/50 mt-3 break-all px-1.5 bg-black/5 rounded py-0.5 max-w-[95%] leading-normal select-text">
-              {src || `[Placeholder Path]`}
-            </span>
-          </div>
-        ) : (
-          <>
-            {loading && (
-              <div className="absolute inset-0 bg-[#EAE5D9]/50 flex items-center justify-center">
-                <span className="text-[9px] text-primary/50 animate-pulse">Loading...</span>
-              </div>
-            )}
-            <img
-              src={src}
-              alt={alt}
-              className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-              onLoad={() => setLoading(false)}
-              onError={() => setHasError(true)}
-            />
-          </>
-        )}
+      {/* Polaroid Card container */}
+      <div className="w-full bg-white border border-primary/10 p-2.5 pb-6 rounded-sm shadow-md hover:shadow-xl hover:scale-105 hover:rotate-0 transition-all duration-300 flex flex-col gap-3 bg-gradient-to-b from-white to-neutral-50/50">
+        
+        {/* Photo area */}
+        <div className="relative w-full aspect-[3/4] overflow-hidden bg-neutral-100 border border-black/5 shadow-inner">
+          {isPlaceholder ? (
+            <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-2 bg-primary/[0.02]">
+              <span className="text-primary text-lg mb-1">📷</span>
+              <span className="text-[7px] font-mono text-black/40 break-all px-1 bg-black/5 rounded py-0.5 leading-normal select-text max-w-[90%]">
+                {src || `[Placeholder Path]`}
+              </span>
+            </div>
+          ) : (
+            <>
+              {loading && (
+                <div className="absolute inset-0 bg-neutral-100 flex items-center justify-center">
+                  <span className="text-[8px] text-primary/40 animate-pulse">Loading...</span>
+                </div>
+              )}
+              <img
+                src={src}
+                alt={alt}
+                className="absolute inset-0 w-full h-full object-cover"
+                onLoad={() => setLoading(false)}
+                onError={() => setHasError(true)}
+              />
+            </>
+          )}
+        </div>
+
+        {/* Polaroid caption area */}
+        <div className="text-center font-playfair font-black text-[9px] md:text-[10px] text-primary/80 tracking-wide uppercase leading-tight select-text">
+          {label}
+        </div>
+
       </div>
     </div>
   );
@@ -105,8 +140,8 @@ export default function Experience() {
       role: t("diem-hang.role"),
       period: "01/2023 - Current",
       location: t("diem-hang.location"),
-      mainImage: "",
-      mainImageLabel: "",
+      mainImage: "/experiance/diemhangielts_logo.png",
+      mainImageLabel: "Diem Hang IELTS Logo",
       galleryTitle: "",
       bullets: [
         t("diem-hang.bullets.0"),
@@ -118,8 +153,8 @@ export default function Experience() {
       id: "interpreter",
       role: t("interpreter.role"),
       period: "03/2025 – Current",
-      mainImage: "",
-      mainImageLabel: "",
+      mainImage: "/experiance/interpreter_logo.png",
+      mainImageLabel: "Interpreter Logo",
       galleryTitle: "",
       bullets: [
         t("interpreter.bullets.0"),
@@ -134,7 +169,7 @@ export default function Experience() {
       role: t("bambi.role"),
       period: "08/2023 - 01/2024",
       location: t("bambi.location"),
-      mainImage: "/experiance/bambi/logo_placeholder.png",
+      mainImage: "/experiance/bambi/logo.jpg",
       mainImageLabel: "Bambi English Center",
       galleryTitle: t("bambi.galleryTitle"),
       bullets: [
@@ -143,10 +178,10 @@ export default function Experience() {
         t("bambi.bullets.2"),
       ],
       subImages: [
-        { path: "/experiance/bambi/1_placeholder.png", label: "Vocabulary Games" },
-        { path: "/experiance/bambi/2_placeholder.png", label: "Class Activities" },
-        { path: "/experiance/bambi/3_placeholder.png", label: "Pronunciation Card" },
-        { path: "/experiance/bambi/4_placeholder.png", label: "Speaking practice" },
+        { path: "/experiance/bambi/1.png", label: "Vocabulary Games" },
+        { path: "/experiance/bambi/2.png", label: "Class Activities" },
+        { path: "/experiance/bambi/3.png", label: "Pronunciation Card" },
+        { path: "/experiance/bambi/4.png", label: "Speaking practice" },
       ],
     },
     {
@@ -154,7 +189,7 @@ export default function Experience() {
       role: t("private-tutor.role"),
       period: "6/2024 - Current",
       location: t("private-tutor.location"),
-      mainImage: "/experiance/pet/logo_placeholder.png",
+      mainImage: "/experiance/pet/logo.jpg",
       mainImageLabel: "Private Tutor Brand",
       galleryTitle: t("private-tutor.galleryTitle"),
       bullets: [
@@ -163,10 +198,14 @@ export default function Experience() {
         t("private-tutor.bullets.2"),
       ],
       subImages: [
-        { path: "/experiance/pet/1_placeholder.png", label: "Quiz Interface" },
-        { path: "/experiance/pet/2_placeholder.png", label: "Tutoring Material 1" },
-        { path: "/experiance/pet/3_placeholder.png", label: "Tutoring Material 2" },
-        { path: "/experiance/pet/4_placeholder.png", label: "Student Progress Track" },
+        { path: "/experiance/pet/1.png", label: "Quiz Interface" },
+        { path: "/experiance/pet/2.png", label: "Tutoring Material 1" },
+        { path: "/experiance/pet/3.png", label: "Tutoring Material 2" },
+        { path: "/experiance/pet/4.png", label: "Student Progress Track" },
+        { path: "/experiance/pet/5.png", label: "Grammar Activity" },
+        { path: "/experiance/pet/6.png", label: "Speaking practice" },
+        { path: "/experiance/pet/7.png", label: "Listening Quiz" },
+        { path: "/experiance/pet/8.png", label: "Student Graduation" },
       ],
     },
     {
@@ -175,7 +214,7 @@ export default function Experience() {
       role: t("tpp-academy.role"),
       period: "11/2024 -5/2026",
       location: t("tpp-academy.location"),
-      mainImage: "/experiance/tpp/logo_placeholder.png",
+      mainImage: "/experiance/tpp/logo.jpg",
       mainImageLabel: "TPP Academy Logo",
       galleryTitle: t("tpp-academy.galleryTitle"),
       bullets: [
@@ -186,10 +225,14 @@ export default function Experience() {
         t("tpp-academy.bullets.4"),
       ],
       subImages: [
-        { path: "/experiance/tpp/1_placeholder.png", label: "Student Platform" },
-        { path: "/experiance/tpp/2_placeholder.png", label: "Presentation Work" },
-        { path: "/experiance/tpp/3_placeholder.png", label: "Class Exercises" },
-        { path: "/experiance/tpp/4_placeholder.png", label: "Score Certificates" },
+        { path: "/experiance/tpp/1.png", label: "Student Platform" },
+        { path: "/experiance/tpp/2.png", label: "Presentation Work" },
+        { path: "/experiance/tpp/3.png", label: "Class Exercises" },
+        { path: "/experiance/tpp/4.png", label: "Score Certificates" },
+        { path: "/experiance/tpp/5.png", label: "Grammar Test Sheet" },
+        { path: "/experiance/tpp/6.png", label: "Classroom Speech" },
+        { path: "/experiance/tpp/7.png", label: "Interactive Activity" },
+        { path: "/experiance/tpp/8.png", label: "Vocabulary Board Game" },
       ],
     },
   ];
@@ -295,18 +338,107 @@ export default function Experience() {
                       <span className="h-[1px] w-8 md:w-16 bg-primary/20"></span>
                     </div>
 
-                    {/* Row of 4 items */}
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-6 items-end max-w-4xl mx-auto w-full">
-                      {exp.subImages.map((subImg, sIdx) => (
-                        <MediaFrame
-                          key={sIdx}
-                          src={subImg.path}
-                          alt={`${exp.company || exp.role} gallery ${sIdx + 1}`}
-                          type="portrait"
-                          label={subImg.label}
-                        />
-                      ))}
-                    </div>
+                    {exp.id === "bambi" ? (
+                      /* Bambi Freestyle: Polaroid layout (4 items) */
+                      <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center max-w-4xl mx-auto w-full pt-4 pb-6">
+                        {/* Column 1: Polaroid (Col span 4) */}
+                        <div className="md:col-span-4 flex justify-center rotate-[-2deg] translate-y-1 hover:rotate-0 transition-transform duration-300">
+                          <MediaFrame
+                            src={exp.subImages[0].path}
+                            alt={`${exp.company || exp.role} gallery 1`}
+                            type="portrait"
+                            label={exp.subImages[0].label}
+                          />
+                        </div>
+                        {/* Column 2: Stack of 2 portrait cards (Col span 4) */}
+                        <div className="md:col-span-4 flex flex-col gap-6 justify-center">
+                          <div className="rotate-[1.5deg] -translate-y-2 hover:rotate-0 transition-transform duration-300">
+                            <MediaFrame
+                              src={exp.subImages[1].path}
+                              alt={`${exp.company || exp.role} gallery 2`}
+                              type="portrait"
+                              label={exp.subImages[1].label}
+                            />
+                          </div>
+                          <div className="rotate-[-1deg] translate-y-2 hover:rotate-0 transition-transform duration-300">
+                            <MediaFrame
+                              src={exp.subImages[2].path}
+                              alt={`${exp.company || exp.role} gallery 3`}
+                              type="portrait"
+                              label={exp.subImages[2].label}
+                            />
+                          </div>
+                        </div>
+                        {/* Column 3: Standard Portrait Card (Col span 4) */}
+                        <div className="md:col-span-4 flex justify-center rotate-[2deg] -translate-y-1 hover:rotate-0 transition-transform duration-300">
+                          <MediaFrame
+                            src={exp.subImages[3].path}
+                            alt={`${exp.company || exp.role} gallery 4`}
+                            type="portrait"
+                            label={exp.subImages[3].label}
+                          />
+                        </div>
+                      </div>
+                    ) : (
+                      /* Pet and TPP Freestyle: 8 items in 2 custom rows */
+                      <div className="flex flex-col gap-10 max-w-4xl mx-auto w-full pt-4 pb-6">
+                        {/* Row 1: Social Post freestyle layout with staggered polaroids */}
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 items-end">
+                          <div className="rotate-[-1.5deg] translate-y-2 hover:rotate-0 transition-transform duration-300">
+                            <MediaFrame
+                              src={exp.subImages[0].path}
+                              alt={`${exp.company || exp.role} gallery 1`}
+                              type="portrait"
+                              label={exp.subImages[0].label}
+                            />
+                          </div>
+                          <div className="rotate-[2.5deg] -translate-y-2 hover:rotate-0 transition-transform duration-300">
+                            <MediaFrame
+                              src={exp.subImages[1].path}
+                              alt={`${exp.company || exp.role} gallery 2`}
+                              type="portrait"
+                              label={exp.subImages[1].label}
+                            />
+                          </div>
+                          <div className="rotate-[-2deg] translate-y-1 hover:rotate-0 transition-transform duration-300">
+                            <MediaFrame
+                              src={exp.subImages[2].path}
+                              alt={`${exp.company || exp.role} gallery 3`}
+                              type="portrait"
+                              label={exp.subImages[2].label}
+                            />
+                          </div>
+                          <div className="rotate-[1.5deg] -translate-y-1 hover:rotate-0 transition-transform duration-300">
+                            <MediaFrame
+                              src={exp.subImages[3].path}
+                              alt={`${exp.company || exp.role} gallery 4`}
+                              type="portrait"
+                              label={exp.subImages[3].label}
+                            />
+                          </div>
+                        </div>
+
+                        {/* Row 2: Grid of 4 standard portrait cards */}
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 items-end">
+                          {exp.subImages.slice(4, 8).map((subImg, sIdx) => {
+                            const transformClass = sIdx === 0 ? "rotate-[2deg] -translate-y-1" :
+                                                   sIdx === 1 ? "rotate-[-2.5deg] translate-y-2" :
+                                                   sIdx === 2 ? "rotate-[1deg] -translate-y-2" :
+                                                                "rotate-[-1.5deg] translate-y-1";
+                            return (
+                              <div key={sIdx + 4} className={`${transformClass} hover:rotate-0 transition-transform duration-300`}>
+                                <MediaFrame
+                                  src={subImg.path}
+                                  alt={`${exp.company || exp.role} gallery ${sIdx + 5}`}
+                                  type="portrait"
+                                  label={subImg.label}
+                                />
+                              </div>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    )}
                   </div>
                 )}
               </motion.div>
