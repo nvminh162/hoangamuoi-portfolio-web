@@ -76,7 +76,7 @@ export default function Contact() {
     },
     {
       label: "Instagram",
-      value: "Muội Hoàng",
+      value: "amuoi_1119",
       href: "https://instagram.com/amuoi_1119",
       image: "/contact/instagram.png",
       color: "hover:bg-pink-50 hover:border-pink-500 hover:text-pink-600",
