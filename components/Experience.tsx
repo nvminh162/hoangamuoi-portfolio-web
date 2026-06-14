@@ -99,7 +99,7 @@ function MediaFrame({ src, alt, type, label, onClick }: MediaFrameProps) {
       {/* Polaroid Card container */}
       <div 
         onClick={onClick}
-        className={`w-full bg-white border border-primary/10 p-1.5 rounded-sm shadow-md hover:shadow-xl hover:scale-105 hover:rotate-0 transition-all duration-300 flex flex-col bg-gradient-to-b from-white to-neutral-50/50 ${onClick ? "cursor-pointer" : ""}`}
+        className={`w-full max-w-[260px] md:max-w-none bg-white border border-primary/10 p-1.5 rounded-sm shadow-md hover:shadow-xl hover:scale-105 hover:rotate-0 transition-all duration-300 flex flex-col bg-gradient-to-b from-white to-neutral-50/50 ${onClick ? "cursor-pointer" : ""}`}
       >
         
         {/* Photo area */}
@@ -369,33 +369,32 @@ export default function Experience() {
                 {exp.subImages && exp.subImages.length > 0 && (
                   <div className="flex flex-col gap-6 mt-4">
                     {/* Centered decorative gallery header */}
-                    <div className="flex items-center justify-center gap-3">
-                      <span className="h-[1px] w-8 md:w-16 bg-primary/20"></span>
-                      <h5 className="font-playfair text-xs md:text-sm font-black text-primary uppercase tracking-[0.25em] whitespace-nowrap text-center">
+                    <div className="flex items-center justify-center gap-2 md:gap-3 w-full px-4 overflow-hidden">
+                      <span className="h-[1px] w-8 md:w-16 bg-primary/20 shrink-0"></span>
+                      <h5 className="font-playfair text-xs md:text-sm font-black text-primary uppercase tracking-[0.25em] whitespace-normal md:whitespace-nowrap text-center px-1">
                         {exp.galleryTitle}
                       </h5>
-                      <span className="h-[1px] w-8 md:w-16 bg-primary/20"></span>
+                      <span className="h-[1px] w-8 md:w-16 bg-primary/20 shrink-0"></span>
                     </div>
 
                     {exp.id === "bambi" ? (
                       /* Bambi Freestyle: Polaroid layout (4 items) */
-                      <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center max-w-4xl mx-auto w-full pt-4 pb-6">
-                        {/* Column 1: Polaroid (Col span 4) */}
-                        <div className="md:col-span-4 flex justify-center rotate-[-2deg] translate-y-1 hover:rotate-0 transition-transform duration-300">
-                          <MediaFrame
-                            src={exp.subImages[0].path}
-                            alt={`${exp.company || exp.role} gallery 1`}
-                            type="portrait"
-                            label={exp.subImages[0].label}
-                            onClick={() => {
-                              const imgs = getExperienceImages(exp);
-                              const idx = exp.mainImage ? 1 : 0;
-                              openLightbox(imgs, idx);
-                            }}
-                          />
-                        </div>
-                        {/* Column 2: Stack of 2 portrait cards (Col span 4) */}
-                        <div className="md:col-span-4 flex flex-col gap-6 justify-center">
+                      <>
+                        {/* Mobile Layout (2x2 grid) */}
+                        <div className="grid grid-cols-2 gap-6 max-w-4xl mx-auto w-full pt-4 pb-6 md:hidden">
+                          <div className="rotate-[-2deg] translate-y-1 hover:rotate-0 transition-transform duration-300">
+                            <MediaFrame
+                              src={exp.subImages[0].path}
+                              alt={`${exp.company || exp.role} gallery 1`}
+                              type="portrait"
+                              label={exp.subImages[0].label}
+                              onClick={() => {
+                                const imgs = getExperienceImages(exp);
+                                const idx = exp.mainImage ? 1 : 0;
+                                openLightbox(imgs, idx);
+                              }}
+                            />
+                          </div>
                           <div className="rotate-[1.5deg] -translate-y-2 hover:rotate-0 transition-transform duration-300">
                             <MediaFrame
                               src={exp.subImages[1].path}
@@ -422,22 +421,82 @@ export default function Experience() {
                               }}
                             />
                           </div>
+                          <div className="rotate-[2deg] -translate-y-1 hover:rotate-0 transition-transform duration-300">
+                            <MediaFrame
+                              src={exp.subImages[3].path}
+                              alt={`${exp.company || exp.role} gallery 4`}
+                              type="portrait"
+                              label={exp.subImages[3].label}
+                              onClick={() => {
+                                const imgs = getExperienceImages(exp);
+                                const idx = exp.mainImage ? 4 : 3;
+                                openLightbox(imgs, idx);
+                              }}
+                            />
+                          </div>
                         </div>
-                        {/* Column 3: Standard Portrait Card (Col span 4) */}
-                        <div className="md:col-span-4 flex justify-center rotate-[2deg] -translate-y-1 hover:rotate-0 transition-transform duration-300">
-                          <MediaFrame
-                            src={exp.subImages[3].path}
-                            alt={`${exp.company || exp.role} gallery 4`}
-                            type="portrait"
-                            label={exp.subImages[3].label}
-                            onClick={() => {
-                              const imgs = getExperienceImages(exp);
-                              const idx = exp.mainImage ? 4 : 3;
-                              openLightbox(imgs, idx);
-                            }}
-                          />
+
+                        {/* Desktop Layout (Current layout) */}
+                        <div className="hidden md:grid grid-cols-12 gap-6 items-center max-w-4xl mx-auto w-full pt-4 pb-6">
+                          {/* Column 1: Polaroid (Col span 4) */}
+                          <div className="col-span-4 flex justify-center rotate-[-2deg] translate-y-1 hover:rotate-0 transition-transform duration-300">
+                            <MediaFrame
+                              src={exp.subImages[0].path}
+                              alt={`${exp.company || exp.role} gallery 1`}
+                              type="portrait"
+                              label={exp.subImages[0].label}
+                              onClick={() => {
+                                const imgs = getExperienceImages(exp);
+                                const idx = exp.mainImage ? 1 : 0;
+                                openLightbox(imgs, idx);
+                              }}
+                            />
+                          </div>
+                          {/* Column 2: Stack of 2 portrait cards (Col span 4) */}
+                          <div className="col-span-4 flex flex-col gap-6 justify-center">
+                            <div className="rotate-[1.5deg] -translate-y-2 hover:rotate-0 transition-transform duration-300">
+                              <MediaFrame
+                                src={exp.subImages[1].path}
+                                alt={`${exp.company || exp.role} gallery 2`}
+                                type="portrait"
+                                label={exp.subImages[1].label}
+                                onClick={() => {
+                                  const imgs = getExperienceImages(exp);
+                                  const idx = exp.mainImage ? 2 : 1;
+                                  openLightbox(imgs, idx);
+                                }}
+                              />
+                            </div>
+                            <div className="rotate-[-1deg] translate-y-2 hover:rotate-0 transition-transform duration-300">
+                              <MediaFrame
+                                src={exp.subImages[2].path}
+                                alt={`${exp.company || exp.role} gallery 3`}
+                                type="portrait"
+                                label={exp.subImages[2].label}
+                                onClick={() => {
+                                  const imgs = getExperienceImages(exp);
+                                  const idx = exp.mainImage ? 3 : 2;
+                                  openLightbox(imgs, idx);
+                                }}
+                              />
+                            </div>
+                          </div>
+                          {/* Column 3: Standard Portrait Card (Col span 4) */}
+                          <div className="col-span-4 flex justify-center rotate-[2deg] -translate-y-1 hover:rotate-0 transition-transform duration-300">
+                            <MediaFrame
+                              src={exp.subImages[3].path}
+                              alt={`${exp.company || exp.role} gallery 4`}
+                              type="portrait"
+                              label={exp.subImages[3].label}
+                              onClick={() => {
+                                const imgs = getExperienceImages(exp);
+                                const idx = exp.mainImage ? 4 : 3;
+                                openLightbox(imgs, idx);
+                              }}
+                            />
+                          </div>
                         </div>
-                      </div>
+                      </>
                     ) : (
                       /* Pet and TPP Freestyle: 8 items in 2 custom rows */
                       <div className="flex flex-col gap-10 max-w-4xl mx-auto w-full pt-4 pb-6">
