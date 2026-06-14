@@ -69,15 +69,15 @@ export default function Contact() {
     },
     {
       label: "Facebook",
-      value: "hoangsun1911",
-      href: "https://facebook.com/hoangsun1911",
+      value: "Muội Hoàng",
+      href: "https://facebook.com/hoang.muoi.94402343",
       image: "/contact/facebook.png",
       color: "hover:bg-blue-50 hover:border-blue-500 hover:text-blue-600",
     },
     {
       label: "Instagram",
-      value: "hoangsun1911",
-      href: "https://instagram.com/hoangsun1911",
+      value: "Muội Hoàng",
+      href: "https://instagram.com/amuoi_1119",
       image: "/contact/instagram.png",
       color: "hover:bg-pink-50 hover:border-pink-500 hover:text-pink-600",
     },
@@ -91,7 +91,7 @@ export default function Contact() {
   ];
 
   return (
-    <section 
+    <section
       id="contact"
       className="relative flex flex-col w-full min-h-screen bg-brand-bg select-none justify-between"
     >
@@ -111,7 +111,7 @@ export default function Contact() {
       {/* Grid Layout Container (Centered) */}
       <div className="flex-1 w-full max-w-6xl mx-auto px-8 md:px-16 py-12 flex items-center justify-center text-black">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start w-full">
-          
+
           {/* Left Column: Form */}
           <motion.div
             className="lg:col-span-7 flex flex-col gap-6"
@@ -227,12 +227,11 @@ export default function Contact() {
 
               {/* Status Feedback */}
               {status && (
-                <div 
-                  className={`p-3 rounded-xl text-xs font-bold tracking-wide text-center border ${
-                    status.type === "success" 
-                      ? "bg-green-50 text-green-800 border-green-200" 
-                      : "bg-red-50 text-red-800 border-red-200"
-                  }`}
+                <div
+                  className={`p-3 rounded-xl text-xs font-bold tracking-wide text-center border ${status.type === "success"
+                    ? "bg-green-50 text-green-800 border-green-200"
+                    : "bg-red-50 text-red-800 border-red-200"
+                    }`}
                 >
                   {status.message}
                 </div>
