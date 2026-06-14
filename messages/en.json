@@ -35,6 +35,7 @@
     "diem-hang": {
       "role": "Consultant",
       "location": "Hanoi, Vietnam (Online)",
+      "galleryTitle": "✦ COURSE CONSULTING & CLIENT CARE ✦",
       "bullets": [
         "Provide course consultation appropriate to customers' qualifications and needs.",
         "Customer care."
@@ -43,6 +44,7 @@
     "private-tutor": {
       "role": "Private English Tutor",
       "location": "HCMC, Vietnam",
+      "galleryTitle": "✦ TUTORING SESSIONS & LESSON PLANS ✦",
       "bullets": [
         "Support students with weak academic performance to achieve basic communication skills",
         "Assist students in developing their listening, speaking, reading, and writing skills through personalized support.",
@@ -52,6 +54,7 @@
     "bambi": {
       "role": "Teaching Assistant",
       "location": "HCMC, Vietnam",
+      "galleryTitle": "✦ CLASSROOM ACTIVITIES & GAMES ✦",
       "bullets": [
         "Teaching English at the center for children to take Starters, Movers, and Flyers",
         "Supported students during class activities, pronunciation practice, vocabulary games, and speaking exercises.",
@@ -61,6 +64,7 @@
     "tpp-academy": {
       "role": "Teaching Assistant",
       "location": "HCMC, Vietnam",
+      "galleryTitle": "✦ TRAINING SESSIONS & MATERIALS ✦",
       "bullets": [
         "Assisted teachers in preparing and delivering classroom activities and learning materials.",
         "Supported students in developing their English communication skills through in-class guidance and practice.",
@@ -71,6 +75,7 @@
     },
     "interpreter": {
       "role": "Interpreter",
+      "galleryTitle": "✦ TRANSLATION & CONFERENCE SCENES ✦",
       "bullets": [
         "Provide accurate interpretation between Vietnamese and English in meetings, discussions, and daily communications.",
         "Facilitate effective communication between clients, partners, and team members from different linguistic backgrounds.",

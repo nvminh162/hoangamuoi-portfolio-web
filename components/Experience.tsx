@@ -1,8 +1,13 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
+
+interface SubImage {
+  path: string;
+  label: string;
+}
 
 interface ExperienceItem {
   id: string;
@@ -10,8 +15,84 @@ interface ExperienceItem {
   role: string;
   period: string;
   location?: string;
-  logo?: string;
+  mainImage: string;
+  mainImageLabel: string;
+  galleryTitle: string;
+  subImages: SubImage[];
   bullets: string[];
+}
+
+interface MediaFrameProps {
+  src: string;
+  alt: string;
+  type: "portrait" | "main";
+  label: string;
+}
+
+function MediaFrame({ src, alt, type, label }: MediaFrameProps) {
+  const [hasError, setHasError] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (!src) {
+      setHasError(true);
+      setLoading(false);
+      return;
+    }
+    const img = new window.Image();
+    img.src = src;
+    img.onload = () => {
+      setLoading(false);
+      setHasError(false);
+    };
+    img.onerror = () => {
+      setLoading(false);
+      setHasError(true);
+    };
+  }, [src]);
+
+  // Define styling classes based on type
+  let aspectClass = "aspect-square";
+  if (type === "portrait") {
+    aspectClass = "aspect-[3/4]";
+  } else if (type === "main") {
+    aspectClass = "aspect-[4/3]";
+  }
+
+  // Handle cases where src is empty or error
+  const isPlaceholder = !src || hasError;
+
+  return (
+    <div className="w-full h-full flex flex-col items-center select-none">
+      {/* Normal Portrait or Main Card */}
+      <div className={`relative w-full ${aspectClass} rounded-2xl overflow-hidden shadow-sm hover:shadow-md border border-primary/10 bg-white/40 backdrop-blur-sm group transition-all duration-300`}>
+        {isPlaceholder ? (
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-3 border-2 border-dashed border-primary/15 rounded-2xl bg-primary/[0.01]">
+            <span className="text-primary text-xl mb-1.5">{type === "main" ? "🖼️" : "📷"}</span>
+            <span className="text-[10px] font-bold text-primary/80 uppercase tracking-wider px-1 leading-snug">{label}</span>
+            <span className="text-[7.5px] font-mono text-black/50 mt-3 break-all px-1.5 bg-black/5 rounded py-0.5 max-w-[95%] leading-normal select-text">
+              {src || `[Placeholder Path]`}
+            </span>
+          </div>
+        ) : (
+          <>
+            {loading && (
+              <div className="absolute inset-0 bg-[#EAE5D9]/50 flex items-center justify-center">
+                <span className="text-[9px] text-primary/50 animate-pulse">Loading...</span>
+              </div>
+            )}
+            <img
+              src={src}
+              alt={alt}
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              onLoad={() => setLoading(false)}
+              onError={() => setHasError(true)}
+            />
+          </>
+        )}
+      </div>
+    </div>
+  );
 }
 
 export default function Experience() {
@@ -24,10 +105,18 @@ export default function Experience() {
       role: t("diem-hang.role"),
       period: "01/2023 - Current",
       location: t("diem-hang.location"),
-      logo: "/experiance/diemhangielts.png",
+      mainImage: "/experiance/diemhang/logo.png",
+      mainImageLabel: "Consulting Brand",
+      galleryTitle: t("diem-hang.galleryTitle"),
       bullets: [
         t("diem-hang.bullets.0"),
         t("diem-hang.bullets.1"),
+      ],
+      subImages: [
+        { path: "/experiance/diemhang/1.png", label: "Consulting App" },
+        { path: "/experiance/diemhang/2.png", label: "Consultation Process" },
+        { path: "/experiance/diemhang/3.png", label: "Client Care Service" },
+        { path: "/experiance/diemhang/4.png", label: "Feedback Screenshot" },
       ],
     },
     {
@@ -35,11 +124,19 @@ export default function Experience() {
       role: t("private-tutor.role"),
       period: "6/2024 - Current",
       location: t("private-tutor.location"),
-      logo: "/experiance/pet.jpg",
+      mainImage: "/experiance/pet/logo_placeholder.png",
+      mainImageLabel: "Private Tutor Brand",
+      galleryTitle: t("private-tutor.galleryTitle"),
       bullets: [
         t("private-tutor.bullets.0"),
         t("private-tutor.bullets.1"),
         t("private-tutor.bullets.2"),
+      ],
+      subImages: [
+        { path: "/experiance/pet/1_placeholder.png", label: "Quiz Interface" },
+        { path: "/experiance/pet/2_placeholder.png", label: "Tutoring Material 1" },
+        { path: "/experiance/pet/3_placeholder.png", label: "Tutoring Material 2" },
+        { path: "/experiance/pet/4_placeholder.png", label: "Student Progress Track" },
       ],
     },
     {
@@ -48,11 +145,19 @@ export default function Experience() {
       role: t("bambi.role"),
       period: "08/2023 - 01/2024",
       location: t("bambi.location"),
-      logo: "/experiance/bambi.jpg",
+      mainImage: "/experiance/bambi/logo_placeholder.png",
+      mainImageLabel: "Bambi English Center",
+      galleryTitle: t("bambi.galleryTitle"),
       bullets: [
         t("bambi.bullets.0"),
         t("bambi.bullets.1"),
         t("bambi.bullets.2"),
+      ],
+      subImages: [
+        { path: "/experiance/bambi/1_placeholder.png", label: "Vocabulary Games" },
+        { path: "/experiance/bambi/2_placeholder.png", label: "Class Activities" },
+        { path: "/experiance/bambi/3_placeholder.png", label: "Pronunciation Card" },
+        { path: "/experiance/bambi/4_placeholder.png", label: "Speaking practice" },
       ],
     },
     {
@@ -61,7 +166,9 @@ export default function Experience() {
       role: t("tpp-academy.role"),
       period: "11/2024 -5/2026",
       location: t("tpp-academy.location"),
-      logo: "/experiance/tpp.jpg",
+      mainImage: "/experiance/tpp/logo_placeholder.png",
+      mainImageLabel: "TPP Academy Logo",
+      galleryTitle: t("tpp-academy.galleryTitle"),
       bullets: [
         t("tpp-academy.bullets.0"),
         t("tpp-academy.bullets.1"),
@@ -69,16 +176,30 @@ export default function Experience() {
         t("tpp-academy.bullets.3"),
         t("tpp-academy.bullets.4"),
       ],
+      subImages: [
+        { path: "/experiance/tpp/1_placeholder.png", label: "Student Platform" },
+        { path: "/experiance/tpp/2_placeholder.png", label: "Presentation Work" },
+        { path: "/experiance/tpp/3_placeholder.png", label: "Class Exercises" },
+        { path: "/experiance/tpp/4_placeholder.png", label: "Score Certificates" },
+      ],
     },
     {
       id: "interpreter",
       role: t("interpreter.role"),
       period: "03/2025 – Current",
-      logo: "/experiance/interpreter.png",
+      mainImage: "/experiance/interpreter/logo.png",
+      mainImageLabel: "Interpretation Service",
+      galleryTitle: t("interpreter.galleryTitle"),
       bullets: [
         t("interpreter.bullets.0"),
         t("interpreter.bullets.1"),
         t("interpreter.bullets.2"),
+      ],
+      subImages: [
+        { path: "/experiance/interpreter/1.png", label: "Translation Notes" },
+        { path: "/experiance/interpreter/2.png", label: "Bilingual Resource" },
+        { path: "/experiance/interpreter/3.png", label: "Conference Photo" },
+        { path: "/experiance/interpreter/4.png", label: "Training Method Info" },
       ],
     },
   ];
@@ -99,9 +220,9 @@ export default function Experience() {
       </motion.div>
 
       {/* Main Content Container (Centered) */}
-      <div className="flex-1 w-full max-w-4xl mx-auto px-8 md:px-16 py-12 flex flex-col justify-center text-black">
+      <div className="flex-1 w-full max-w-5xl mx-auto px-8 md:px-12 py-12 flex flex-col justify-center gap-16 text-black">
         {/* Intro */}
-        <div className="mb-12 flex flex-col items-center text-center">
+        <div className="flex flex-col items-center text-center">
           <h3 className="font-playfair text-2xl md:text-3xl font-bold text-primary tracking-wider uppercase inline-block border-b border-primary/20 pb-2 mb-2">
             {t("subtitle")}
           </h3>
@@ -111,68 +232,91 @@ export default function Experience() {
         </div>
 
         {/* Stack of experiences */}
-        <div className="relative border-l-2 border-primary/20 pl-6 md:pl-10 space-y-12">
+        <div className="space-y-24">
           {experiences.map((exp, idx) => {
             return (
               <motion.div
                 key={exp.id}
-                className="flex flex-col md:flex-row gap-6 md:gap-8 items-start relative"
-                initial={{ opacity: 0, y: 30 }}
+                className="flex flex-col gap-10 border-b border-primary/10 pb-16 last:border-b-0 last:pb-0"
+                initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.6, delay: idx * 0.1 }}
+                transition={{ duration: 0.7, delay: idx * 0.1 }}
               >
-                {/* Dot indicator on the vertical timeline line */}
-                <div className="absolute -left-[33px] md:-left-[47px] top-6 w-3 h-3 rounded-full bg-primary border-2 border-brand-bg"></div>
-
-                {/* Logo / Company Identity */}
-                {exp.logo && (
-                  <div className="w-24 h-24 md:w-28 md:h-28 shrink-0 bg-white border border-primary/10 rounded-xl overflow-hidden shadow-sm flex items-center justify-center p-3">
-                    <img
-                      src={exp.logo}
-                      alt={exp.company || exp.role}
-                      className="w-full h-full object-contain"
-                    />
-                  </div>
-                )}
-
-                {/* Content Panel */}
-                <div className="flex-1">
-                  <div>
-                    <h4 className="text-lg md:text-xl font-bold text-black leading-snug">
-                      {exp.role}
-                    </h4>
-                    {(exp.company || exp.location) && (
-                      <div className="flex flex-wrap items-center gap-x-2 gap-y-1 mt-0.5">
+                {/* Upper block: Title and text layout */}
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+                  
+                  {/* Left Column: Text info */}
+                  <div className="lg:col-span-8 flex flex-col gap-4">
+                    {/* Header */}
+                    <div>
+                      <h4 className="text-3xl md:text-4xl lg:text-5xl font-playfair font-black text-primary leading-tight uppercase tracking-tight">
+                        {exp.company || exp.role}
+                      </h4>
+                      <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 mt-2 text-sm font-bold text-black/60">
                         {exp.company && (
-                          <span className="text-primary font-bold text-xs md:text-sm">
-                            {exp.company}
+                          <span className="text-black font-extrabold uppercase">
+                            {exp.role}
                           </span>
                         )}
                         {exp.location && (
-                          <span className="text-black/60 text-xs font-semibold">
-                            {exp.company ? `• ${exp.location}` : exp.location}
+                          <span className="text-black/55">
+                            • {exp.location}
                           </span>
                         )}
+                        <span className="px-2.5 py-0.5 bg-primary/10 text-primary border border-primary/15 font-mono text-[10px] md:text-xs font-bold rounded uppercase tracking-wider">
+                          {exp.period}
+                        </span>
                       </div>
-                    )}
-                    <p className="text-[10px] md:text-xs font-mono font-bold text-black/50 mt-1 uppercase tracking-wider">
-                      {exp.period}
-                    </p>
+                    </div>
+
+                    {/* Paragraphs (joined bullets) */}
+                    <div className="space-y-4 mt-2 text-xs md:text-sm font-semibold text-black/80 leading-relaxed max-w-3xl text-justify">
+                      {exp.bullets.map((bullet, bIdx) => (
+                        <p key={bIdx}>
+                          {bullet}
+                        </p>
+                      ))}
+                    </div>
                   </div>
 
-                  {/* Bullet Points */}
-                  <ul className="space-y-2 mt-4 text-xs md:text-sm leading-relaxed text-black/90 font-semibold">
-                    {exp.bullets.map((bullet, bIdx) => (
-                      <li key={bIdx} className="flex items-start gap-2.5">
-                        <span className="text-primary font-black text-xs select-none shrink-0 mt-0.5">
-                          ▷
-                        </span>
-                        <span>{bullet}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  {/* Right Column: Main Image Frame */}
+                  <div className="lg:col-span-4 w-full max-w-[280px] lg:max-w-none mx-auto">
+                    <MediaFrame
+                      src={exp.mainImage}
+                      alt={exp.company || exp.role}
+                      type="main"
+                      label={exp.mainImageLabel}
+                    />
+                  </div>
                 </div>
+
+                {/* Lower block: Sub-gallery */}
+                {exp.subImages && exp.subImages.length > 0 && (
+                  <div className="flex flex-col gap-6 mt-4">
+                    {/* Centered decorative gallery header */}
+                    <div className="flex items-center justify-center gap-3">
+                      <span className="h-[1px] w-8 md:w-16 bg-primary/20"></span>
+                      <h5 className="font-playfair text-xs md:text-sm font-black text-primary uppercase tracking-[0.25em] whitespace-nowrap text-center">
+                        {exp.galleryTitle}
+                      </h5>
+                      <span className="h-[1px] w-8 md:w-16 bg-primary/20"></span>
+                    </div>
+
+                    {/* Row of 4 items */}
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-6 items-end max-w-4xl mx-auto w-full">
+                      {exp.subImages.map((subImg, sIdx) => (
+                        <MediaFrame
+                          key={sIdx}
+                          src={subImg.path}
+                          alt={`${exp.company || exp.role} gallery ${sIdx + 1}`}
+                          type="portrait"
+                          label={subImg.label}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                )}
               </motion.div>
             );
           })}

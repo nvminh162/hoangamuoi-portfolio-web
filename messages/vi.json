@@ -35,6 +35,7 @@
     "diem-hang": {
       "role": "Tư vấn viên",
       "location": "Hà Nội, Việt Nam (Online)",
+      "galleryTitle": "✦ TƯ VẤN KHÓA HỌC & CHĂM SÓC KHÁCH HÀNG ✦",
       "bullets": [
         "Tư vấn các khóa học phù hợp với trình độ và nhu cầu của khách hàng.",
         "Chăm sóc khách hàng."
@@ -43,6 +44,7 @@
     "private-tutor": {
       "role": "Gia sư Tiếng Anh Tự do",
       "location": "TP.HCM, Việt Nam",
+      "galleryTitle": "✦ BUỔI HỌC GIA SƯ & TÀI LIỆU CÁ NHÂN HÓA ✦",
       "bullets": [
         "Hỗ trợ các học viên mất gốc đạt được kỹ năng giao tiếp cơ bản.",
         "Hỗ trợ học viên phát triển toàn diện các kỹ năng nghe, nói, đọc, viết thông qua lộ trình cá nhân hóa.",
@@ -52,6 +54,7 @@
     "bambi": {
       "role": "Trợ giảng",
       "location": "TP.HCM, Việt Nam",
+      "galleryTitle": "✦ HOẠT ĐỘNG LỚP HỌC & TRÒ CHƠI TIẾNG ANH ✦",
       "bullets": [
         "Giảng dạy tiếng Anh tại trung tâm cho trẻ em ôn luyện chứng chỉ Starters, Movers và Flyers.",
         "Hỗ trợ học viên trong các hoạt động trên lớp, luyện phát âm, trò chơi từ vựng và bài tập nói.",
@@ -61,6 +64,7 @@
     "tpp-academy": {
       "role": "Trợ giảng",
       "location": "TP.HCM, Việt Nam",
+      "galleryTitle": "✦ BUỔI ĐÀO TẠO & TÀI LIỆU LUYỆN THI ✦",
       "bullets": [
         "Hỗ trợ giáo viên chuẩn bị và triển khai các hoạt động trên lớp cùng tài liệu học tập.",
         "Hỗ trợ học viên phát triển kỹ năng giao tiếp tiếng Anh thông qua việc hướng dẫn và thực hành ngay trên lớp.",
@@ -71,6 +75,7 @@
     },
     "interpreter": {
       "role": "Phiên dịch viên",
+      "galleryTitle": "✦ HOẠT ĐỘNG PHIÊN DỊCH & HỘI NGHỊ ✦",
       "bullets": [
         "Phiên dịch chính xác giữa tiếng Việt và tiếng Anh trong các cuộc họp, thảo luận và giao tiếp hàng ngày.",
         "Hỗ trợ giao tiếp hiệu quả giữa khách hàng, đối tác và các thành viên trong nhóm đến từ nhiều quốc gia khác nhau.",
