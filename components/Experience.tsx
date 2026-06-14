@@ -338,6 +338,14 @@ export default function Experience() {
                       </div>
                     </div>
 
+                    {/* Paragraphs (joined bullets) */}
+                    <div className="space-y-4 mt-2 text-xs md:text-sm font-semibold text-black/80 leading-relaxed max-w-3xl text-justify">
+                      {exp.bullets.map((bullet, bIdx) => (
+                        <p key={bIdx}>
+                          {bullet}
+                        </p>
+                      ))}
+                    </div>
                   </div>
 
                   {/* Right Column: Main Image Frame */}

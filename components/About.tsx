@@ -79,7 +79,7 @@ export default function About() {
                 {t("role")}
               </p>
               
-              <div className="space-y-4 text-sm md:text-base leading-relaxed text-justify text-black/90 font-semibold">
+              <div className="space-y-4 text-sm md:text-base leading-relaxed text-justify text-black/90 font-normal">
                 <p>
                   {t("bio")}
                 </p>
