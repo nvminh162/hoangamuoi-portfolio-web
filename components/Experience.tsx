@@ -105,39 +105,28 @@ export default function Experience() {
       role: t("diem-hang.role"),
       period: "01/2023 - Current",
       location: t("diem-hang.location"),
-      mainImage: "/experiance/diemhang/logo.png",
-      mainImageLabel: "Consulting Brand",
-      galleryTitle: t("diem-hang.galleryTitle"),
+      mainImage: "",
+      mainImageLabel: "",
+      galleryTitle: "",
       bullets: [
         t("diem-hang.bullets.0"),
         t("diem-hang.bullets.1"),
       ],
-      subImages: [
-        { path: "/experiance/diemhang/1.png", label: "Consulting App" },
-        { path: "/experiance/diemhang/2.png", label: "Consultation Process" },
-        { path: "/experiance/diemhang/3.png", label: "Client Care Service" },
-        { path: "/experiance/diemhang/4.png", label: "Feedback Screenshot" },
-      ],
+      subImages: [],
     },
     {
-      id: "private-tutor",
-      role: t("private-tutor.role"),
-      period: "6/2024 - Current",
-      location: t("private-tutor.location"),
-      mainImage: "/experiance/pet/logo_placeholder.png",
-      mainImageLabel: "Private Tutor Brand",
-      galleryTitle: t("private-tutor.galleryTitle"),
+      id: "interpreter",
+      role: t("interpreter.role"),
+      period: "03/2025 – Current",
+      mainImage: "",
+      mainImageLabel: "",
+      galleryTitle: "",
       bullets: [
-        t("private-tutor.bullets.0"),
-        t("private-tutor.bullets.1"),
-        t("private-tutor.bullets.2"),
+        t("interpreter.bullets.0"),
+        t("interpreter.bullets.1"),
+        t("interpreter.bullets.2"),
       ],
-      subImages: [
-        { path: "/experiance/pet/1_placeholder.png", label: "Quiz Interface" },
-        { path: "/experiance/pet/2_placeholder.png", label: "Tutoring Material 1" },
-        { path: "/experiance/pet/3_placeholder.png", label: "Tutoring Material 2" },
-        { path: "/experiance/pet/4_placeholder.png", label: "Student Progress Track" },
-      ],
+      subImages: [],
     },
     {
       id: "bambi",
@@ -161,6 +150,26 @@ export default function Experience() {
       ],
     },
     {
+      id: "private-tutor",
+      role: t("private-tutor.role"),
+      period: "6/2024 - Current",
+      location: t("private-tutor.location"),
+      mainImage: "/experiance/pet/logo_placeholder.png",
+      mainImageLabel: "Private Tutor Brand",
+      galleryTitle: t("private-tutor.galleryTitle"),
+      bullets: [
+        t("private-tutor.bullets.0"),
+        t("private-tutor.bullets.1"),
+        t("private-tutor.bullets.2"),
+      ],
+      subImages: [
+        { path: "/experiance/pet/1_placeholder.png", label: "Quiz Interface" },
+        { path: "/experiance/pet/2_placeholder.png", label: "Tutoring Material 1" },
+        { path: "/experiance/pet/3_placeholder.png", label: "Tutoring Material 2" },
+        { path: "/experiance/pet/4_placeholder.png", label: "Student Progress Track" },
+      ],
+    },
+    {
       id: "tpp-academy",
       company: "TPP Academy",
       role: t("tpp-academy.role"),
@@ -181,25 +190,6 @@ export default function Experience() {
         { path: "/experiance/tpp/2_placeholder.png", label: "Presentation Work" },
         { path: "/experiance/tpp/3_placeholder.png", label: "Class Exercises" },
         { path: "/experiance/tpp/4_placeholder.png", label: "Score Certificates" },
-      ],
-    },
-    {
-      id: "interpreter",
-      role: t("interpreter.role"),
-      period: "03/2025 – Current",
-      mainImage: "/experiance/interpreter/logo.png",
-      mainImageLabel: "Interpretation Service",
-      galleryTitle: t("interpreter.galleryTitle"),
-      bullets: [
-        t("interpreter.bullets.0"),
-        t("interpreter.bullets.1"),
-        t("interpreter.bullets.2"),
-      ],
-      subImages: [
-        { path: "/experiance/interpreter/1.png", label: "Translation Notes" },
-        { path: "/experiance/interpreter/2.png", label: "Bilingual Resource" },
-        { path: "/experiance/interpreter/3.png", label: "Conference Photo" },
-        { path: "/experiance/interpreter/4.png", label: "Training Method Info" },
       ],
     },
   ];
@@ -247,7 +237,7 @@ export default function Experience() {
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
                   
                   {/* Left Column: Text info */}
-                  <div className="lg:col-span-8 flex flex-col gap-4">
+                  <div className={exp.mainImage ? "lg:col-span-8 flex flex-col gap-4" : "lg:col-span-12 flex flex-col gap-4"}>
                     {/* Header */}
                     <div>
                       <h4 className="text-3xl md:text-4xl lg:text-5xl font-playfair font-black text-primary leading-tight uppercase tracking-tight">
@@ -281,14 +271,16 @@ export default function Experience() {
                   </div>
 
                   {/* Right Column: Main Image Frame */}
-                  <div className="lg:col-span-4 w-full max-w-[280px] lg:max-w-none mx-auto">
-                    <MediaFrame
-                      src={exp.mainImage}
-                      alt={exp.company || exp.role}
-                      type="main"
-                      label={exp.mainImageLabel}
-                    />
-                  </div>
+                  {exp.mainImage && (
+                    <div className="lg:col-span-4 w-full max-w-[280px] lg:max-w-none mx-auto">
+                      <MediaFrame
+                        src={exp.mainImage}
+                        alt={exp.company || exp.role}
+                        type="main"
+                        label={exp.mainImageLabel}
+                      />
+                    </div>
+                  )}
                 </div>
 
                 {/* Lower block: Sub-gallery */}
